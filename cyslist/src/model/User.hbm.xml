@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.User" table="User">
+    	<id name="userId" column="userId">
+    		<generator class="native" />
+    	</id>
+    	<property name="name"/>
+    	<property name="password"/>
+    	<property name="rating"/>
+    	
+		<set name="posts" table="UserPosts" cascade="all">
+            <key column="userId" />
+            <one-to-many column="postId"  class="model.UserPost" />
+        </set>
+    </class>
+</hibernate-mapping>
