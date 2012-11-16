@@ -13,6 +13,8 @@
 	<body>
  	<h1> Housing</h1>
 
-	
+	<div>
+		Results go here
+	</div>
 </body>
 </html>
