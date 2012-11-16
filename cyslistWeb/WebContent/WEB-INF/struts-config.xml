@@ -8,9 +8,6 @@
 <struts-config>
     <form-beans>
         <form-bean name="LoginForm" type="com.vaannila.LoginForm"/>
-   		<form-bean name="EmployeeLookupForm" type="com.web.employeeLookup.EmployeeLookupForm"/>
-   		<form-bean name="AddEmployeeForm" type="com.web.addEmployee.AddEmployeeForm"/>
-   		<form-bean name="EmployeeProjectLookupForm" type="com.web.employeeProjectLookup.EmployeeProjectLookupForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -27,28 +24,14 @@
             <forward name="failure" path="/failure.jsp" />
         </action>
         
-        <action path="/EmployeeLookupForm" forward="/employeeLookup.jsp"/>
-        <action input="employeeLookup.jsp" name="EmployeeLookupForm" path="/EmployeeLookup" scope="session" type="com.web.employeeLookup.EmployeeLookupAction">
-            <forward name="employeeResult" path="/employeeResult.jsp"/>
-			<forward name="empty" path="/employeeLookup.jsp"/>
+        <action input="" name="" path="/HousingPage" scope="session" type="com.web.housing.HousingPageAction">
+            <forward name="housingResult" path="/housing.jsp"/>
         </action>
         
-        <action path="/AddEmployeeForm" forward="/addEmployee.jsp"/>
-        <action input="addEmployee.jsp" name="AddEmployeeForm" path="/AddEmployee" scope="session" type="com.web.addEmployee.AddEmployeeAction">
-           <forward name="added" path="/index.jsp"/> 
-        </action>
-        
-        <action path="/EmployeeProjectLookupForm" forward="/employeeProjectLookup.jsp"/>
-        <action input="employeeProjectLookup.jsp" name="EmployeeProjectLookupForm" path="/EmployeeProjectLookup" 
-        		scope="session" type="com.web.employeeProjectLookup.EmployeeProjectLookupAction">
-        		
-           <forward name="employeeProjectResult" path="/employeeProjectResult.jsp"/> 
-        </action>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-    <message-resources parameter="com/vaannila/ApplicationResource"/>
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--
