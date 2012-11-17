@@ -3,8 +3,10 @@ package model;
 import java.util.Date;
 
 public class UserPost {
+	
 	long postId;
 	String content;
+	String topic;
 	Date date;
 	String title;
 	
@@ -23,6 +25,12 @@ public class UserPost {
 	}
 	public void setContent(String content){
 		this.content = content;
+	}
+	public String getTopic(){
+		return topic;
+	}
+	public void setTopic(String topic){
+		this.topic = topic;
 	}
 	public Date getDate(){
 		return date;

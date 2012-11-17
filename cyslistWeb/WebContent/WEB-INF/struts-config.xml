@@ -8,6 +8,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="LoginForm" type="com.vaannila.LoginForm"/>
+        <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -27,7 +28,11 @@
         <action input="" name="" path="/HousingPage" scope="session" type="com.web.housing.HousingPageAction">
             <forward name="housingResult" path="/housing.jsp"/>
         </action>
-        
+        <action forward="/userpost.jsp" path="/UserPostPage" />
+        <action input="userpost.jsp" name="UserPostForm" path="/UserPost" scope="session" type="com.web.userPost.UserPostAction">
+            <forward name="success" path="/postsuccess.jsp" />
+            <forward name="failure" path="/userpost.jsp" />
+        </action>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

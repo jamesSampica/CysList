@@ -20,22 +20,27 @@
 		</form>
 		
 	</table>
+	<h4><html:link action="/UserPostPage">Post</html:link> </h4>
 	<h4>Sell/Buy</h4>
 	<table>
-	<html:link action="/HousingPage">housing</html:link> </br>
-	<html:link action="/BooksPage">books</html:link></br>
-	<html:link action="/TicketsPage">tickets</html:link></br>
-	<html:link action="/FurniturePage">furniture </html:link></br>
-	<html:link action="/OtherPage">other</html:link></br>
+	<tr><td><html:link action="/HousingPage">housing</html:link> </td></tr>
+	<tr><td><html:link action="/BooksPage">books</html:link> </td></tr>
+	<tr><td><html:link action="/TicketsPage">tickets</html:link> </td></tr>
+	<tr><td><html:link action="/FurniturePage">furniture </html:link> </td></tr>
+	<tr><td><html:link action="/OtherPage">other</html:link> </td></tr>
 	</table>
-	<h4>Study Groups</h4> </br>
-		<html:link action="/EngineeringPage">engineering</html:link></br>
-		<html:link action="/ArtPage">art</html:link></br>
-		<html:link action="/OtherPage">other</html:link></br>
-	<h4>Social</h4> </br>
-		<html:link action="/EventsPage">events</html:link> </br>
-		<html:link action="/ClubsPage">clubs</html:link> </br>
-		<html:link action="/HelpPage">help</html:link></br>
-		<html:link action="/JobsPage">jobs</html:link> </br>
+	<h4>Study Groups</h4>
+	<table>
+		<tr><td><html:link action="/EngineeringPage">engineering</html:link></td></tr>
+		<tr><td><html:link action="/ArtPage">art</html:link></td></tr>
+		<tr><td><html:link action="/OtherPage">other</html:link></td></tr>
+	</table>
+	<h4>Social</h4>
+	<table>
+		<tr><td><html:link action="/EventsPage">events</html:link></td></tr>
+		<tr><td><html:link action="/ClubsPage">clubs</html:link></td></tr>
+		<tr><td><html:link action="/HelpPage">help</html:link></td></tr>
+		<tr><td><html:link action="/JobsPage">jobs</html:link></td></tr>
+	</table>
 </body>
 </html>
