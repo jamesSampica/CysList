@@ -17,14 +17,14 @@ public class UserPostAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        //HttpSession httpSession =request.getSession(true);
-        //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        //session.beginTransaction();
-
+    	UserPostForm upf = (UserPostForm) form;
+        HttpSession httpSession =request.getSession(true);
+        
+        HibernateUtil.createAndStorePost(upf.topic, upf.content, upf.title);
         
         //httpSession.setAttribute("result", resultConcat.toString());
 			
-		//session.getTransaction().commit();
-		return mapping.findForward("housingResult");
+		 
+		return mapping.findForward("postsuccess");
     }
 }

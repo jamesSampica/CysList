@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Post" table="Post">
+    	<id name="postId" column="postId">
+    		<generator class="native" />
+    	</id>
+    	<property name="content"/>
+    	<property name="title"/>
+    	<property name="date" type="java.util.Date"/>
+    	
+    </class>
+</hibernate-mapping>

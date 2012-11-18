@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class UserPost {
+public class Post {
 	
 	long postId;
 	String content;
@@ -10,7 +10,7 @@ public class UserPost {
 	Date date;
 	String title;
 	
-	public UserPost(){
+	public Post(){
 		
 	}
 	

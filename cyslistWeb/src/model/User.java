@@ -7,10 +7,10 @@ public class User {
 	String name;
 	String password;
 	int rating;
-	HashSet<String> posts;
+	HashSet<Post> posts;
 	
 	public User(){
-		posts = new HashSet<String>();
+		posts = new HashSet<Post>();
 	}
 	
 	public long getUserId(){
@@ -36,5 +36,11 @@ public class User {
 	}
 	public void setRating(int rating){
 		this.rating = rating;
+	}
+	public HashSet<Post> getPosts(){
+		return posts;
+	}
+	public void setPosts(HashSet<Post> posts){
+		this.posts = posts;
 	}
 }

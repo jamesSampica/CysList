@@ -26,5 +26,11 @@ public class HibernateUtil {
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-
+    
+    public static void createAndStorePost(String topic, String content, String title){
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        session.getTransaction().commit();
+    }
 }

@@ -34,8 +34,8 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping resource="model/UserPost.hbm.xml"/>
-        <mapping resource="model/UserComment.hbm.xml"/>
+        <mapping resource="model/Post.hbm.xml"/>
+         <!--<mapping resource="model/UserComment.hbm.xml"/>-->
         <mapping resource="model/User.hbm.xml"/>
 
     </session-factory>

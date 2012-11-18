@@ -12,9 +12,11 @@
     	<property name="password"/>
     	<property name="rating"/>
     	
-		<set name="posts" table="UserPosts" cascade="all">
-            <key column="userId" />
-            <one-to-many column="postId"  class="model.UserPost" />
+		<set name="posts" table="Post" cascade="all">
+            <key>
+                <column name="userId" not-null="true" />
+            </key>
+            <one-to-many class="model.Post" />
         </set>
     </class>
 </hibernate-mapping>
