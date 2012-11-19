@@ -8,7 +8,7 @@ public class UserPostForm extends org.apache.struts.action.ActionForm {
 	String title;
 	
 	public UserPostForm(){
-		
+		super();
 	}
 	public String getTopic(){
 		return topic;

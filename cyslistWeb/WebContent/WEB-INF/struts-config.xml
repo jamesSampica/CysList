@@ -7,7 +7,7 @@
 
 <struts-config>
     <form-beans>
-        <form-bean name="LoginForm" type="com.vaannila.LoginForm"/>
+        <form-bean name="LoginForm" type="com.web.login.LoginForm"/>
         <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
     </form-beans>
     
@@ -20,7 +20,7 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="login.jsp" name="LoginForm" path="/Login" scope="session" type="com.vaannila.LoginAction">
+        <action input="/index.jsp" name="LoginForm" path="/Login" scope="session" type="com.web.login.LoginAction">
             <forward name="success" path="/success.jsp" />
             <forward name="failure" path="/failure.jsp" />
         </action>
@@ -35,6 +35,8 @@
             <forward name="postfailure" path="/userpost.jsp" />
         </action>
     </action-mappings>
+    
+    <message-resources parameter="com/web/login/ApplicationResource"/>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 

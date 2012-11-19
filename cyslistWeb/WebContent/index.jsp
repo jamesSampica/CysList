@@ -21,6 +21,16 @@
 		
 	</table>
 	<h4><html:link action="/UserPostPage">Post</html:link> </h4>
+	
+	<div style="color:red">
+    	<html:errors />
+    </div>
+    <html:form action="/Login" >
+    	User Name : <html:text name="LoginForm" property="userName" /> <br>
+        Password  : <html:password name="LoginForm" property="password" /> <br>
+    	<html:submit value="Login" />
+    </html:form>
+    
 	<h4>Sell/Buy</h4>
 	<table>
 	<tr><td><html:link action="/HousingPage">housing</html:link> </td></tr>
