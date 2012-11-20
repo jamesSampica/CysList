@@ -14,7 +14,7 @@
  	<h1> Housing</h1>
 
 	<div>
-		Results go here
+		 <%= session.getAttribute( "result" ) %>
 	</div>
 </body>
 </html>

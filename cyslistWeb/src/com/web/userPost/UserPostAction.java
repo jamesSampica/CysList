@@ -19,7 +19,6 @@ public class UserPostAction extends org.apache.struts.action.Action {
         
     	UserPostForm upf = (UserPostForm) form;
         HttpSession httpSession =request.getSession(true);
-        
         HibernateUtil.createAndStorePost(upf.topic, upf.content, upf.title);
         
         //httpSession.setAttribute("result", resultConcat.toString());

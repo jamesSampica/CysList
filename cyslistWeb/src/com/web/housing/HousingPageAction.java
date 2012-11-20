@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
 import org.hibernate.Session;
 
+import model.Post;
 import util.HibernateUtil;
 
 public class HousingPageAction extends org.apache.struts.action.Action {
@@ -17,14 +18,19 @@ public class HousingPageAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        //HttpSession httpSession =request.getSession(true);
-        //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        //session.beginTransaction();
-
+        HttpSession httpSession =request.getSession(true);
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
         
-        //httpSession.setAttribute("result", resultConcat.toString());
+        Post p = (Post) session
+        .createQuery("select * from post")
+        .uniqueResult();
+        
+        String resultConcat = p.getTitle() + p.getContent() + p.getTopic();
+        
+        httpSession.setAttribute("result", resultConcat.toString());
 			
-		//session.getTransaction().commit();
+		session.getTransaction().commit();
 		return mapping.findForward("housingResult");
     }
 }
