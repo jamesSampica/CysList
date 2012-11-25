@@ -23,7 +23,7 @@ public class HousingPageAction extends org.apache.struts.action.Action {
         session.beginTransaction();
         
         Post p = (Post) session
-        .createQuery("select * from post")
+        .createQuery("from Post")
         .uniqueResult();
         
         if(p != null){
