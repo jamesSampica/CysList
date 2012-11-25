@@ -23,12 +23,17 @@ public class HousingPageAction extends org.apache.struts.action.Action {
         session.beginTransaction();
         
         Post p = (Post) session
-        .createQuery("select * from post")
+        .createQuery("from Post")
         .uniqueResult();
         
-        String resultConcat = p.getTitle() + p.getContent() + p.getTopic();
+        if(p != null){
+        	String resultConcat = p.getTitle() + p.getContent() + p.getTopic();
+        	 httpSession.setAttribute("result", resultConcat.toString());
+        }
+        else{
+        	httpSession.setAttribute("result", "No results");
+        }
         
-        httpSession.setAttribute("result", resultConcat.toString());
 			
 		session.getTransaction().commit();
 		return mapping.findForward("housingResult");
