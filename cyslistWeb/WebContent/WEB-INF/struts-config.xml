@@ -36,10 +36,11 @@
         </action>
     </action-mappings>
     
+    <message-resources parameter="com/web/login/ApplicationResource"/>
+    
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-     <message-resources parameter="com/web/login/ApplicationResource"/>
-     
+    
     <!-- ========================= Tiles plugin ===============================-->
     <!--
     This plugin initialize Tiles definition factory. This later can takes some
