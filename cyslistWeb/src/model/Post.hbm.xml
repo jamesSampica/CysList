@@ -10,7 +10,9 @@
     	</id>
     	<property name="content"/>
     	<property name="title"/>
-    	<property name="date" type="java.util.Date"/>
+    	<property name="postKey"/>
+    	<property name="topic"/>
+    	<property name="date" type="timestamp"/>
     	
     </class>
 </hibernate-mapping>

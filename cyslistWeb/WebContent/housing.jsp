@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,7 +15,11 @@
  	<h1> Housing</h1>
 
 	<div>
-		 <%= session.getAttribute( "result" ) %>
+		<c:forEach items="${housingResults}" var="entry">
+    		${entry.title}
+    		${entry.content}
+    		${entry.date}<br>
+		</c:forEach>
 	</div>
 </body>
 </html>

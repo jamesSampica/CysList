@@ -2,6 +2,12 @@
  * 
  */
 package util;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Random;
+
+import model.Post;
+
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 /**
@@ -27,10 +33,25 @@ public class HibernateUtil {
         return sessionFactory;
     }
     
-    public static void createAndStorePost(String topic, String content, String title){
+    public static String createAndStorePost(String topic, String content, String title){
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         
+        Post newPost = new Post();
+        newPost.setContent(content);
+        
+        newPost.setDate(new Date());
+        
+        newPost.setTitle(title);
+        newPost.setTopic(topic);
+        
+        Random gen = new Random();
+        String key = String.valueOf(gen.nextLong()) + title.hashCode();
+        newPost.setPostKey(key);
+        
+        session.save(newPost);
         session.getTransaction().commit();
+        
+        return key;
     }
 }

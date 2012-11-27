@@ -34,6 +34,8 @@
             <forward name="postsuccess" path="/postsuccess.jsp" />
             <forward name="postfailure" path="/userpost.jsp" />
         </action>
+        
+        <action forward="/managepost.jsp" path="/ManagePostPage" />
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

@@ -26,6 +26,10 @@
 	</head>
     <body>
         <h1>Post Success!</h1>
+        <div>
+			<%= session.getAttribute("postKey") %>
+			<% session.setAttribute("postKey", "" ); %>
+		</div>
         <span id="timer">  
 			<script>  
  				countDown();  

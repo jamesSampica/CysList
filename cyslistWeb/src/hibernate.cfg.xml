@@ -36,7 +36,7 @@
 
         <mapping resource="model/Post.hbm.xml"/>
          <!--<mapping resource="model/UserComment.hbm.xml"/>-->
-        <mapping resource="model/User.hbm.xml"/>
+        <!--<mapping resource="model/User.hbm.xml"/>-->
 
     </session-factory>
 

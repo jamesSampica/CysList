@@ -9,6 +9,7 @@ public class Post {
 	String topic;
 	Date date;
 	String title;
+	String postKey;
 	
 	public Post(){
 		
@@ -43,5 +44,11 @@ public class Post {
 	}
 	public void setTitle(String title){
 		this.title = title;
+	}
+	public String getPostKey(){
+		return postKey;
+	}
+	public void setPostKey(String postKey){
+		this.postKey = postKey;
 	}
 }

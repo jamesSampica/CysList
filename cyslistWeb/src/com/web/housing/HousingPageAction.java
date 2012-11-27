@@ -1,5 +1,7 @@
 package com.web.housing;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,17 +24,13 @@ public class HousingPageAction extends org.apache.struts.action.Action {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         
-        Post p = (Post) session
-        .createQuery("from Post")
-        .uniqueResult();
+        List<?> postList = session.createQuery("from Post where topic='housing'").list();
         
-        if(p != null){
-        	String resultConcat = p.getTitle() + p.getContent() + p.getTopic();
-            
-            httpSession.setAttribute("result", resultConcat.toString());
+        if(postList != null){
+            httpSession.setAttribute("housingResults", postList);
         }
         else{
-        	httpSession.setAttribute("result", "No Results");
+        	httpSession.setAttribute("housingResults", "No Results");
         }
         
 			
