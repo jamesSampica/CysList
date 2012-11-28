@@ -12,11 +12,8 @@
 	</head>
 	<body>
  	        <html:form action="/ManagePost" >
-            	Title : <html:text name="ManagePostForm" property="title" /> <br>
-            	Content : <html:textarea name="ManagePostForm" property="content" cols="50" rows="10" /><br>
-            	Topic : <br>
-            		<html:radio name="ManagePostForm" property="topic" value="housing" /> Housing<br>
-            		<html:radio name="ManagePostForm" property="topic" value="hooks" /> Books<br> 
+            	Title : <html:text name="ManagePostForm" value="${post.title}" property="title" /> <br>
+            	Content : <html:textarea name="ManagePostForm" value="${post.content}" property="content" cols="50" rows="10" /><br> 
             	<html:submit value="Post" />
        		</html:form>
 	</body>

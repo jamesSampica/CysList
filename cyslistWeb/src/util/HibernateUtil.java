@@ -58,7 +58,7 @@ public class HibernateUtil {
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         
-        Post p = (Post) session.createQuery("select p from Post where p.postKey = :pkey")
+        Post p = (Post) session.createQuery("from Post where postKey = :pkey")
 		.setParameter("pkey", key).uniqueResult();
         
         session.getTransaction().commit();

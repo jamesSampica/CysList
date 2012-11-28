@@ -21,7 +21,7 @@
 		
 	</table>
 	<h4><html:link action="/UserPostPage">Post</html:link> </h4>
-	<h4><html:link action="/ManagePostPage">Manage Posts</html:link> </h4>
+	<h4><html:link action="/ManagePostQueryPage">Manage Posts</html:link> </h4>
 	<div style="color:red">
     	<html:errors />
     </div>
