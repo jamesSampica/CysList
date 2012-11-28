@@ -9,6 +9,7 @@
     <form-beans>
         <form-bean name="LoginForm" type="com.web.login.LoginForm"/>
         <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
+        <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -30,12 +31,16 @@
         </action>
         
         <action forward="/userpost.jsp" path="/UserPostPage" />
-        <action input="userpost.jsp" name="UserPostForm" path="/UserPost" scope="session" type="com.web.userPost.UserPostAction">
+        <action input="userpost.jsp" name="UserPostForm" path="/UserPost" scope="request" type="com.web.userPost.UserPostAction">
             <forward name="postsuccess" path="/postsuccess.jsp" />
             <forward name="postfailure" path="/userpost.jsp" />
         </action>
         
-        <action forward="/managepost.jsp" path="/ManagePostPage" />
+        <action forward="/managepostquery.jsp" path="/ManagePostPage" />
+        <action input="managepostquery.jsp" name="UserPostForm" path="/UserPost" scope="request" type="com.web.userPost.ManagePostAction">
+            <forward name="querysuccess" path="/managepost.jsp" />
+            <forward name="queryfailure" path="/index.jsp" />
+        </action>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

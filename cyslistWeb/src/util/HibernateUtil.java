@@ -54,4 +54,15 @@ public class HibernateUtil {
         
         return key;
     }
+    public static Post getPostByKey(String key){
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        Post p = (Post) session.createQuery("select p from Post where p.postKey = :pkey")
+		.setParameter("pkey", key).uniqueResult();
+        
+        session.getTransaction().commit();
+        
+    	return p;
+    }
 }
