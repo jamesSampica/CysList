@@ -16,7 +16,7 @@ public class ManagePostAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-    	UserPostForm upf = (UserPostForm) form;
+    	ManagePostForm upf = (ManagePostForm) form;
         HttpSession httpSession = request.getSession(true);
         System.out.println(upf.topic + " " + upf.content + " " + upf.title);
         

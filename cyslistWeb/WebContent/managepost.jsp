@@ -11,12 +11,12 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
- 	        <html:form action="/UserPost" >
-            	Title : <html:text name="UserPostForm" property="title" /> <br>
-            	Content : <html:text name="UserPostForm" property="content" /><br>
+ 	        <html:form action="/ManagePost" >
+            	Title : <html:text name="ManagePostForm" property="title" /> <br>
+            	Content : <html:textarea name="ManagePostForm" property="content" cols="50" rows="10" /><br>
             	Topic : <br>
-            		<html:radio property="topic" value="housing" /> Housing<br>
-            		<html:radio property="topic" value="hooks" /> Books<br> 
+            		<html:radio name="ManagePostForm" property="topic" value="housing" /> Housing<br>
+            		<html:radio name="ManagePostForm" property="topic" value="hooks" /> Books<br> 
             	<html:submit value="Post" />
        		</html:form>
 	</body>

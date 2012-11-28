@@ -10,6 +10,7 @@
         <form-bean name="LoginForm" type="com.web.login.LoginForm"/>
         <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
         <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
+        <form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -36,9 +37,14 @@
             <forward name="postfailure" path="/userpost.jsp" />
         </action>
         
-        <action forward="/managepostquery.jsp" path="/ManagePostPage" />
-        <action input="managepostquery.jsp" name="UserPostForm" path="/UserPost" scope="request" type="com.web.userPost.ManagePostAction">
+        <action forward="/managepostquery.jsp" path="/ManagePostQueryPage" />
+        <action input="managepostquery.jsp" name="ManagePostQueryForm" path="/ManagePostQuery" scope="request" type="com.web.userPost.ManagePostQueryAction">
             <forward name="querysuccess" path="/managepost.jsp" />
+            <forward name="queryfailure" path="/managepostquery.jsp" />
+        </action>
+        
+        <action input="managepost.jsp" name="ManagePostForm" path="/ManagePost" scope="request" type="com.web.userPost.ManagePostAction">
+            <forward name="postsuccess" path="/postsuccess.jsp" />
             <forward name="queryfailure" path="/index.jsp" />
         </action>
     </action-mappings>

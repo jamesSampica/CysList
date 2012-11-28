@@ -12,8 +12,8 @@
 	</head>
 	<body>
 			<h4>Query Post</h4>
- 	        <html:form action="/UserPost" >
-            	Key : <html:text name="UserPostForm" property="title" /> <br> 
+ 	        <html:form action="/ManagePostQuery" >
+            	Key : <html:text name="ManagePostQueryForm" property="key" /> <br> 
             	<html:submit value="Search" />
        		</html:form>
 	</body>
