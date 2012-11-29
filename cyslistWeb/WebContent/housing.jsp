@@ -16,11 +16,14 @@
 
 	<div>
 	<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="40%" cellpadding="5" cellspacing="1">
+		<c:set var="counter" value="1" />
 		<c:forEach items="${housingResults}" var="entry">
 			<tr>
+				<td>${counter}</td>
     			<td><html:link action="/ViewPostPage">${entry.title}</html:link></td>
     			<td>${entry.date}</td>
     		</tr>
+    		<c:set var="counter" value="${counter+1}" />
 		</c:forEach>
 		</table>
 	</div>
