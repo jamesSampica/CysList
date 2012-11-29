@@ -11,10 +11,14 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
- 	        <html:form action="/ManagePost" >
+ 	        <html:form action="/UpdatePost" >
             	Title : <html:text name="ManagePostForm" value="${post.title}" property="title" /> <br>
-            	Content : <html:textarea name="ManagePostForm" value="${post.content}" property="content" cols="50" rows="10" /><br> 
-            	<html:submit value="Post" />
+            	Email : <html:text name="ManagePostForm" value="${post.email}" property="email" /> <br>
+            	Content :<br> <html:textarea name="ManagePostForm" value="${post.content}" property="content" cols="50" rows="10" /><br> 
+            	<html:submit value="Update Post" />
+       		</html:form>
+       		<html:form action="/DeletePost" >
+            	<html:submit value="Delete Post" />
        		</html:form>
 	</body>
 </html>

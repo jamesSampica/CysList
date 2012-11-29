@@ -8,32 +8,12 @@
 		<title>CysList</title>
  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
-		<script language="JavaScript" type="text/javascript">  
-			var count =6;  
-			var redirect="/cyslistWeb/";  
-  
-			function countDown(){  
- 				if (count <=0){  
- 			 		window.location = redirect;  
- 				}
- 				else{  
- 	 				count--;  
- 	 				document.getElementById("timer").innerHTML = "redirect in "+count+" seconds.";
- 	 				setTimeout("countDown()", 1000);
- 				}  
-			}  
-	</script> 
 	</head>
     <body>
         <h1>Post Success!</h1>
         <div>
-			<%= session.getAttribute("postKey") %>
-			<% session.setAttribute("postKey", "" ); %>
+			Here is your key: <%= session.getAttribute("postkey") %>
 		</div>
-        <span id="timer">  
-			<script>  
- 				countDown();  
-			</script>  
-		</span>
+		<p><a href="/cyslistWeb/">Go To Home</a> </p>
     </body>
 </html>

@@ -26,7 +26,8 @@ public class ManagePostQueryAction extends org.apache.struts.action.Action {
         
         if(queriedPost != null){
         	httpSession.setAttribute("post", queriedPost);
-   		 
+   		 	httpSession.setAttribute("postkey", mpqf.key);
+   		 	
     		return mapping.findForward("querysuccess");
         }
         else{

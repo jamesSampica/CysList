@@ -20,10 +20,9 @@ public class UserPostAction extends org.apache.struts.action.Action {
     	UserPostForm upf = (UserPostForm) form;
         HttpSession httpSession = request.getSession(true);
         System.out.println(upf.topic + " " + upf.content + " " + upf.title);
-        String key = HibernateUtil.createAndStorePost(upf.topic, upf.content, upf.title);
+        String key = HibernateUtil.createAndStorePost(upf.topic, upf.content, upf.title, upf.email);
         
-        httpSession.setAttribute("postKey", key);
-			
+        httpSession.setAttribute("postkey", key);
 		 
 		return mapping.findForward("postsuccess");
     }

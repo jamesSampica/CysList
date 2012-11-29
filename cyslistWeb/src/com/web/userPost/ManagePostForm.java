@@ -5,6 +5,7 @@ public class ManagePostForm extends org.apache.struts.action.ActionForm {
 	String content;
 	String topic;
 	String title;
+	String email;
 	
 	public ManagePostForm(){
 		super();
@@ -26,5 +27,11 @@ public class ManagePostForm extends org.apache.struts.action.ActionForm {
 	}
 	public void setTitle(String title){
 		this.title = title;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String email){
+		this.email = email;
 	}
 }

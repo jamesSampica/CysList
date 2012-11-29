@@ -33,13 +33,13 @@ public class HibernateUtil {
         return sessionFactory;
     }
     
-    public static String createAndStorePost(String topic, String content, String title){
+    public static String createAndStorePost(String topic, String content, String title, String email){
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         
         Post newPost = new Post();
         newPost.setContent(content);
-        
+        newPost.setEmail(email);
         newPost.setDate(new Date());
         
         newPost.setTitle(title);
@@ -64,5 +64,30 @@ public class HibernateUtil {
         session.getTransaction().commit();
         
     	return p;
+    }
+    
+    public static void updatePostByKey(String key, String email, String title, String content){
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        Post postToUpdate = (Post) session.createQuery("from Post where postKey = :pkey")
+        .setParameter("pkey", key).uniqueResult();
+        
+        postToUpdate.setContent(content);
+        postToUpdate.setEmail(email);
+        postToUpdate.setTitle(title);
+        
+        session.save(postToUpdate);
+        session.getTransaction().commit();
+        
+    }
+    public static void deletePostByKey(String key){
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        session.createQuery("delete from Post where postKey = :pkey")
+        .setParameter("pkey", key).executeUpdate();
+            	
+    	session.getTransaction().commit();
     }
 }

@@ -12,6 +12,7 @@
     	<property name="title"/>
     	<property name="postKey"/>
     	<property name="topic"/>
+    	<property name="email"/>
     	<property name="date" type="timestamp"/>
     	
     </class>

@@ -13,7 +13,8 @@
 	<body>
  	        <html:form action="/UserPost" >
             	Title : <html:text name="UserPostForm" property="title" /> <br>
-            	Content : <html:text name="UserPostForm" property="content" /><br>
+            	Content : <br><html:textarea name="UserPostForm" property="content" cols="50" rows="10" /><br>
+            	Email : <html:text name="UserPostForm" property="email" /><br>
             	Topic : <br>
             		<html:radio property="topic" value="housing" /> Housing<br>
             		<html:radio property="topic" value="hooks" /> Books<br> 

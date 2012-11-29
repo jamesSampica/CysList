@@ -10,6 +10,7 @@ public class Post {
 	Date date;
 	String title;
 	String postKey;
+	String email;
 	
 	public Post(){
 		
@@ -50,5 +51,11 @@ public class Post {
 	}
 	public void setPostKey(String postKey){
 		this.postKey = postKey;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String email){
+		this.email = email;
 	}
 }

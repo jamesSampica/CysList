@@ -15,11 +15,14 @@
  	<h1> Housing</h1>
 
 	<div>
+	<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="40%" cellpadding="5" cellspacing="1">
 		<c:forEach items="${housingResults}" var="entry">
-    		${entry.title}
-    		${entry.content}
-    		${entry.date}<br>
+			<tr>
+    			<td><html:link action="/ViewPostPage">${entry.title}</html:link></td>
+    			<td>${entry.date}</td>
+    		</tr>
 		</c:forEach>
+		</table>
 	</div>
 </body>
 </html>

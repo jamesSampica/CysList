@@ -18,16 +18,16 @@
     </global-exceptions>
 
     <global-forwards>
-        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="index"  path="/index.jsp"/>
     </global-forwards>
 
     <action-mappings>
-        <action input="/index.jsp" name="LoginForm" path="/Login" scope="session" type="com.web.login.LoginAction">
+        <action input="index.jsp" name="LoginForm" path="/Login" scope="session" type="com.web.login.LoginAction">
             <forward name="success" path="/success.jsp" />
             <forward name="failure" path="/failure.jsp" />
         </action>
         
-        <action input="" name="" path="/HousingPage" scope="session" type="com.web.housing.HousingPageAction">
+        <action input="index.jsp" name="" path="/HousingPage" scope="request" type="com.web.housing.HousingPageAction">
             <forward name="housingResult" path="/housing.jsp"/>
         </action>
         
@@ -43,9 +43,12 @@
             <forward name="queryfailure" path="/managepostquery.jsp" />
         </action>
         
-        <action input="managepost.jsp" name="ManagePostForm" path="/ManagePost" scope="request" type="com.web.userPost.ManagePostAction">
+        <action input="managepost.jsp" name="ManagePostForm" path="/UpdatePost" scope="request" type="com.web.userPost.UpdatePostAction">
             <forward name="postsuccess" path="/postsuccess.jsp" />
-            <forward name="queryfailure" path="/index.jsp" />
+        </action>
+        
+        <action input="managepost.jsp" name="ManagePostForm" path="/DeletePost" scope="request" type="com.web.userPost.DeletePostAction">
+            <forward name="deletesuccess" path="/index.jsp" />
         </action>
     </action-mappings>
     

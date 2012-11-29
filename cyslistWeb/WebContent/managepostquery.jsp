@@ -11,9 +11,10 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
-			<h4>Query Post</h4>
+			<h1>Manage Post</h1>
+			<h4>Enter your key to edit/delete your post</h4>
  	        <html:form action="/ManagePostQuery" >
-            	Key : <html:text name="ManagePostQueryForm" property="key" /> <br> 
+            	Key : <html:text name="ManagePostQueryForm" property="key" /> 
             	<html:submit value="Search" />
        		</html:form>
 	</body>
