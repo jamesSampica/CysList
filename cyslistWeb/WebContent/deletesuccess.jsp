@@ -24,9 +24,7 @@
 	</head>
     <body>
         <h1>Delete Success!</h1>
-		<p><a href="/cyslistWeb/" id="timer">
-
-			</a> 
+		<p><a href="/cyslistWeb/" id="timer"></a> 
 		</p>
 		<script>  
 			 countDown();  

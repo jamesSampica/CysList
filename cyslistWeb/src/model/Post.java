@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Post {
+public class Post implements Comparable<Post>{
 	
 	long postId;
 	String content;
@@ -57,5 +57,16 @@ public class Post {
 	}
 	public void setEmail(String email){
 		this.email = email;
+	}
+
+	@Override
+	public int compareTo(Post arg0) {
+		if(arg0.date.after(date)){
+			return 1;
+		}
+		else if(arg0.date.before(date)){
+			return -1;
+		}
+		return 0;
 	}
 }

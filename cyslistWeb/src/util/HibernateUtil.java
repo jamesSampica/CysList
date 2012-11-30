@@ -46,7 +46,7 @@ public class HibernateUtil {
         newPost.setTopic(topic);
         
         Random gen = new Random();
-        String key = String.valueOf(gen.nextLong()) + title.hashCode();
+        String key = String.valueOf(Math.abs(gen.nextLong())) + Math.abs(title.hashCode());
         newPost.setPostKey(key);
         
         session.save(newPost);

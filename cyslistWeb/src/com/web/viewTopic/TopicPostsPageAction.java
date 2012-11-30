@@ -1,4 +1,4 @@
-package com.web.housing;
+package com.web.viewTopic;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.hibernate.Session;
 
 import util.HibernateUtil;
 
-public class HousingPageAction extends org.apache.struts.action.Action {
+public class TopicPostsPageAction extends org.apache.struts.action.Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)

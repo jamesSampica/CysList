@@ -11,6 +11,7 @@
         <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
         <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
         <form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm"/>
+        <form-bean name="ViewPostForm" type="com.web.viewPost.ViewPostForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -49,6 +50,10 @@
         
         <action input="managepost.jsp" name="ManagePostForm" path="/DeletePost" scope="request" type="com.web.userPost.DeletePostAction">
             <forward name="deletesuccess" path="/deletesuccess.jsp" />
+        </action>
+        
+        <action name="ViewPostForm" path="/ViewPostPage" scope="request" type="com.web.viewPost.ViewPostAction">
+            <forward name="viewpost" path="/viewpostpage.jsp" />
         </action>
     </action-mappings>
     

@@ -6,12 +6,12 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>CysList</title>
+		<title>cysList</title>
  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
- 	<h1> CysList</h1>
+ 	<h1> cysList</h1>
 
 	<table class="title">
 		<form method="post" action="">
@@ -20,8 +20,8 @@
 		</form>
 		
 	</table>
-	<h4><html:link action="/UserPostPage">Post</html:link> </h4>
-	<h4><html:link action="/ManagePostQueryPage">Manage Posts</html:link> </h4>
+	<h4><html:link action="/UserPostPage">post</html:link> </h4>
+	<h4><html:link action="/ManagePostQueryPage">manage posts</html:link> </h4>
 	<div style="color:red">
     	<html:errors />
     </div>
@@ -33,7 +33,7 @@
     
 	<h4>Sell/Buy</h4>
 	<table>
-	<tr><td><html:link action="/HousingPage">housing</html:link> </td></tr>
+	<tr><td><html:link action="/HousingPage" paramId="housing" paramName="TopicPostsForm" paramProperty="topic">housing</html:link> </td></tr>
 	<tr><td><html:link action="/BooksPage">books</html:link> </td></tr>
 	<tr><td><html:link action="/TicketsPage">tickets</html:link> </td></tr>
 	<tr><td><html:link action="/FurniturePage">furniture </html:link> </td></tr>
