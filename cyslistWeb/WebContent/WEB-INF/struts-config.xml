@@ -12,6 +12,7 @@
         <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
         <form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm"/>
         <form-bean name="ViewPostForm" type="com.web.viewPost.ViewPostForm"/>
+        <form-bean name="TopicPostsForm" type="com.web.viewTopic.TopicPostsForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -28,7 +29,7 @@
             <forward name="failure" path="/failure.jsp" />
         </action>
         
-        <action input="index.jsp" name="" path="/HousingPage" scope="request" type="com.web.housing.HousingPageAction">
+        <action input="index.jsp" name="TopicPostsForm" path="/TopicPosts" scope="request" type="com.web.viewTopic.TopicPostsPageAction">
             <forward name="housingResult" path="/housing.jsp"/>
         </action>
         

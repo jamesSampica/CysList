@@ -33,7 +33,13 @@
     
 	<h4>Sell/Buy</h4>
 	<table>
-	<tr><td><html:link action="/HousingPage" paramId="housing" paramName="TopicPostsForm" paramProperty="topic">housing</html:link> </td></tr>
+	<tr><td>
+		<html:link action="/HousingPage"  paramId="housing" paramName="TopicPostsForm" paramProperty="topic">
+			housing
+		</html:link> 
+		
+		</td>
+	</tr>
 	<tr><td><html:link action="/BooksPage">books</html:link> </td></tr>
 	<tr><td><html:link action="/TicketsPage">tickets</html:link> </td></tr>
 	<tr><td><html:link action="/FurniturePage">furniture </html:link> </td></tr>
