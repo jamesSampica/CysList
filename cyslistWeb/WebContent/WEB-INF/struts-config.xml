@@ -7,12 +7,13 @@
 
 <struts-config>
     <form-beans>
+    	<form-bean name="LoginForm" type="com.web.login.LoginForm"/>
         <form-bean name="LoginForm" type="com.web.login.LoginForm"/>
         <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
         <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
         <form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm"/>
         <form-bean name="ViewPostForm" type="com.web.viewPost.ViewPostForm"/>
-        <form-bean name="TopicPostsForm" type="com.web.viewTopic.TopicPostsForm"/>
+        <form-bean name="TopicPostsPageForm" type="com.web.viewTopic.TopicPostsPageForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -28,9 +29,9 @@
             <forward name="success" path="/success.jsp" />
             <forward name="failure" path="/failure.jsp" />
         </action>
-        
-        <action input="index.jsp" name="TopicPostsForm" path="/TopicPosts" scope="request" type="com.web.viewTopic.TopicPostsPageAction">
-            <forward name="housingResult" path="/housing.jsp"/>
+         
+       <action input="index.jsp" name="TopicPostsPageForm" path="/TopicPosts" scope="request" type="com.web.viewTopic.TopicPostsPageAction">
+            <forward name="topicResults" path="/topicPosts.jsp"/>
         </action>
         
         <action forward="/userpost.jsp" path="/UserPostPage" />

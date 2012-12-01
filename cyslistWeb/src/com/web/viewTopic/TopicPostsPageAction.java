@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Post;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -20,15 +22,23 @@ public class TopicPostsPageAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
+    	TopicPostsPageForm topicForm = (TopicPostsPageForm) form;
+
+    	System.out.println("Topic: "+topicForm.topic);
+    	 
         HttpSession httpSession =request.getSession(true);
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
+
+        @SuppressWarnings("unchecked")
+		List<String> postList = session.createQuery("from Post where topic=:ttopic")
+        		.setParameter("ttopic", topicForm.topic).list(); 
         
-        List<String> postList = session.createQuery("from Post where topic='housing'").list();
         Collections.sort(postList);
         
         if(postList != null){
             httpSession.setAttribute("postResults", postList);
+            httpSession.setAttribute("category", topicForm.topic);
         }
         else{
         	httpSession.setAttribute("postResults", "No Results");
@@ -36,6 +46,6 @@ public class TopicPostsPageAction extends org.apache.struts.action.Action {
         
 			
 		session.getTransaction().commit();
-		return mapping.findForward("housingResult");
+		return mapping.findForward("topicResults");
     }
 }

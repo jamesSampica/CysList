@@ -1,12 +1,20 @@
 package com.web.userPost;
 
+import org.apache.struts.upload.FormFile;
+
 
 public class UserPostForm extends org.apache.struts.action.ActionForm {
     
-	String content;
-	String topic;
-	String title;
-	String email;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8405309615364232978L;
+	
+	private String content;
+	private String topic;
+	private String title;
+	private String email;
+	private FormFile image;
 	
 	public UserPostForm(){
 		super();
@@ -34,5 +42,11 @@ public class UserPostForm extends org.apache.struts.action.ActionForm {
 	}
 	public void setEmail(String email){
 		this.email = email;
+	}
+	public FormFile getImage() {  
+		return image;  
+	}    
+	public void setImage(FormFile image) {  
+		this.image = image;  
 	}
 }

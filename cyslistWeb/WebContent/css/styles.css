@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+ .linkbutton{
+ 	border: none;
+    display: inline;
+    margin: 0em;
+    padding: 0em;
+    outline: none;
+    outline-offset: 0em;
+    background: none;
+    color: #0000FF;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline;}

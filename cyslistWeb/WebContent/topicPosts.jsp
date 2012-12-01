@@ -12,19 +12,20 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
- 	<h1>${postResults[0].topic}</h1>
+ 	<h1>${category}</h1>
 	<a href="/cyslistWeb/" id="home">home</a>
 	<div>
 	<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="40%" cellpadding="5" cellspacing="1">
 		<c:set var="counter" value="1" />
 		<c:forEach items="${postResults}" var="entry">
 			<tr>
-				<html:form action="/ViewPostPage" styleId="vpf${counter}">
+				<html:form action="/ViewPostPage">
 					<td>
-						<html:text readonly="true" name="ViewPostForm" property="postNum" style="border: none; width: 20px;" value="${counter}"/>
+						${counter}
+						<html:hidden name="ViewPostForm" property="postNum" value="${counter}"/>
 					</td>
     				<td width="50%">
-    					<a href="#" onclick="document.getElementById('vpf${counter}').submit()">${entry.title}</a>				
+    					 <html:submit value="${entry.title}" styleClass="linkbutton" />				
     				</td>
     			</html:form>
     			<td>${entry.date}</td>
