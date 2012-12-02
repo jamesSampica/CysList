@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
- 	        <html:form action="/UserPost" >
+ 	        <html:form action="/UserPost" enctype="multipart/form-data">
             	Title : <html:text name="UserPostForm" property="title" /> <br>
             	Content : <br><html:textarea name="UserPostForm" property="content" cols="50" rows="10" /><br>
             	Email : <html:text name="UserPostForm" property="email" /><br>

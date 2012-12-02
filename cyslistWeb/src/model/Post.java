@@ -11,6 +11,7 @@ public class Post implements Comparable<Post>{
 	String title;
 	String postKey;
 	String email;
+	byte[] image;
 	
 	public Post(){
 		
@@ -58,7 +59,14 @@ public class Post implements Comparable<Post>{
 	public void setEmail(String email){
 		this.email = email;
 	}
-
+	public byte[] getImage() {
+		return this.image;
+	}
+ 
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
 	@Override
 	public int compareTo(Post arg0) {
 		if(arg0.date.after(date)){
