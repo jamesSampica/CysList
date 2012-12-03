@@ -9,8 +9,12 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.url">jdbc:mysql://localhost/cyslist</property>
     
-    <property name="connection.username">jim</property>
-    <property name="connection.password">hickory</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">password</property>
+
+<!--     <property name="connection.username">jim</property> -->
+<!--     <property name="connection.password">hickory</property> -->
+
 
     <!-- SQL dialect -->
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -36,7 +40,7 @@
 
         <mapping resource="model/Post.hbm.xml"/>
          <!--<mapping resource="model/UserComment.hbm.xml"/>-->
-        <!--<mapping resource="model/User.hbm.xml"/>-->
+        <mapping resource="model/User.hbm.xml"/>
 
     </session-factory>
 

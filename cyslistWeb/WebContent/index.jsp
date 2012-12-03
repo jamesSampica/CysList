@@ -36,6 +36,7 @@
          <br />
          <html:submit value="Login" />
       </html:form>
+      <html:link action="/CreateUserAccount">Create Account</html:link>
       <h4>Sell/Buy</h4>
       <table>
          <tr>

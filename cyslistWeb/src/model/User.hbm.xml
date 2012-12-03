@@ -11,6 +11,7 @@
     	<property name="name"/>
     	<property name="password"/>
     	<property name="rating"/>
+    	<property name="email" />
     	
 		<set name="posts" table="Post" cascade="all">
             <key>

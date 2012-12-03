@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Random;
 
 import model.Post;
+import model.User;
 
 import org.apache.struts.upload.FormFile;
 import org.hibernate.*;
@@ -90,4 +91,21 @@ public class HibernateUtil {
             	
     	session.getTransaction().commit();
     }
+    
+	public static String createAndStoreUser(String name, String email, String password) {
+		User toAdd = new User();
+		toAdd.setName(name);
+		toAdd.setPassword(password);
+		toAdd.setEmail(email);
+		toAdd.setRating(0);
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		// TODO check for existing account with same email.
+		session.save(toAdd);
+		
+		session.getTransaction().commit();
+		return "success";
+	}
 }

@@ -1,46 +1,66 @@
 package model;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class User {
 	long userId;
 	String name;
 	String password;
+	String email;
+
 	int rating;
-	HashSet<Post> posts;
-	
-	public User(){
+	Set<Post> posts;
+
+	public User() {
 		posts = new HashSet<Post>();
 	}
-	
-	public long getUserId(){
+
+	public long getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId){
+
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public String getName(){
+
+	public String getName() {
 		return name;
 	}
-	public void setName(String name){
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPassword(){
+
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password){
+
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getRating(){
+
+	public int getRating() {
 		return rating;
 	}
-	public void setRating(int rating){
+
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	public HashSet<Post> getPosts(){
+
+	public Set<Post> getPosts() {
 		return posts;
 	}
-	public void setPosts(HashSet<Post> posts){
+
+	public void setPosts(Set<Post> posts) {
 		this.posts = posts;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

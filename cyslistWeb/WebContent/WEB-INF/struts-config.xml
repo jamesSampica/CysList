@@ -6,101 +6,107 @@
 
 
 <struts-config>
-    <form-beans>
-    	<form-bean name="LoginForm" type="com.web.login.LoginForm"/>
-        <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
-        <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
-        <form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm"/>
-        <form-bean name="ViewPostForm" type="com.web.viewPost.ViewPostForm"/>
-        <form-bean name="TopicPostsPageForm" type="com.web.viewTopic.TopicPostsPageForm"/>
-    </form-beans>
-    
-    <global-exceptions>
-    
-    </global-exceptions>
+	<form-beans>
+		<form-bean name="LoginForm" type="com.web.login.LoginForm" />
+		<form-bean name="UserPostForm" type="com.web.userPost.UserPostForm" />
+		<form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm" />
+		<form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm" />
+		<form-bean name="ViewPostForm" type="com.web.viewPost.ViewPostForm" />
+		<form-bean name="TopicPostsPageForm" type="com.web.viewTopic.TopicPostsPageForm" />
+		<form-bean name="CreateUserForm" type="com.web.createUser.CreateUserForm" />
+	</form-beans>
 
-    <global-forwards>
-        <forward name="index"  path="/index.jsp"/>
-    </global-forwards>
+	<global-exceptions>
 
-    <action-mappings>
-        <action input="index.jsp" name="LoginForm" path="/Login" scope="session" type="com.web.login.LoginAction">
-            <forward name="success" path="/success.jsp" />
-            <forward name="failure" path="/failure.jsp" />
-        </action>
-         
-       <action input="index.jsp" name="TopicPostsPageForm" path="/TopicPosts" scope="request" type="com.web.viewTopic.TopicPostsPageAction">
-            <forward name="topicResults" path="/topicPosts.jsp"/>
-        </action>
-        
-        <action forward="/userpost.jsp" path="/UserPostPage" />
-        <action input="userpost.jsp" name="UserPostForm" path="/UserPost" scope="request" type="com.web.userPost.UserPostAction">
-            <forward name="postsuccess" path="/postsuccess.jsp" />
-            <forward name="postfailure" path="/userpost.jsp" />
-        </action>
-        
-        <action forward="/managepostquery.jsp" path="/ManagePostQueryPage" />
-        <action input="managepostquery.jsp" name="ManagePostQueryForm" path="/ManagePostQuery" scope="request" type="com.web.userPost.ManagePostQueryAction">
-            <forward name="querysuccess" path="/managepost.jsp" />
-            <forward name="queryfailure" path="/managepostquery.jsp" />
-        </action>
-        
-        <action input="managepost.jsp" name="ManagePostForm" path="/UpdatePost" scope="request" type="com.web.userPost.UpdatePostAction">
-            <forward name="postsuccess" path="/postsuccess.jsp" />
-        </action>
-        
-        <action input="managepost.jsp" name="ManagePostForm" path="/DeletePost" scope="request" type="com.web.userPost.DeletePostAction">
-            <forward name="deletesuccess" path="/deletesuccess.jsp" />
-        </action>
-        
-        <action name="ViewPostForm" path="/ViewPostPage" scope="request" type="com.web.viewPost.ViewPostAction">
-            <forward name="viewpost" path="/viewpostpage.jsp" />
-        </action>
-    </action-mappings>
-    
-    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
-    <message-resources parameter="com/web/login/ApplicationResource"/>
-    
-    
+	</global-exceptions>
 
-    
-    <!-- ========================= Tiles plugin ===============================-->
-    <!--
-    This plugin initialize Tiles definition factory. This later can takes some
-    parameters explained here after. The plugin first read parameters from
-    web.xml, thenoverload them with parameters defined here. All parameters
-    are optional.
-    The plugin should be declared in each struts-config file.
-    - definitions-config: (optional)
-    Specify configuration file names. There can be several comma
-    separated file names (default: ?? )
-    - moduleAware: (optional - struts1.1)
-    Specify if the Tiles definition factory is module aware. If true
-    (default), there will be one factory for each Struts module.
-    If false, there will be one common factory for all module. In this
-    later case, it is still needed to declare one plugin per module.
-    The factory will be initialized with parameters found in the first
-    initialized plugin (generally the one associated with the default
-    module).
-    true : One factory per module. (default)
-    false : one single shared factory for all modules
-    - definitions-parser-validate: (optional)
-    Specify if xml parser should validate the Tiles configuration file.
-    true : validate. DTD should be specified in file header (default)
-    false : no validation
+	<global-forwards>
+		<forward name="index" path="/index.jsp" />
+	</global-forwards>
 
-    Paths found in Tiles definitions are relative to the main context.
-    -->
-    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
-        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
-        <set-property property="moduleAware" value="true" />
-    </plug-in>
-    
-    <!-- ========================= Validator plugin ================================= -->
-    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-        <set-property
-            property="pathnames"
-            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
-    </plug-in>
-  
+	<action-mappings>
+		<action input="index.jsp" name="LoginForm" path="/Login" scope="session"
+			type="com.web.login.LoginAction">
+			<forward name="success" path="/success.jsp" />
+			<forward name="failure" path="/failure.jsp" />
+		</action>
+
+		<action input="index.jsp" name="TopicPostsPageForm" path="/TopicPosts"
+			scope="request" type="com.web.viewTopic.TopicPostsPageAction">
+			<forward name="topicResults" path="/topicPosts.jsp" />
+		</action>
+
+		<action forward="/userpost.jsp" path="/UserPostPage" />
+		<action input="userpost.jsp" name="UserPostForm" path="/UserPost"
+			scope="request" type="com.web.userPost.UserPostAction">
+			<forward name="postsuccess" path="/postsuccess.jsp" />
+			<forward name="postfailure" path="/userpost.jsp" />
+		</action>
+
+		<action forward="/managepostquery.jsp" path="/ManagePostQueryPage" />
+		<action input="managepostquery.jsp" name="ManagePostQueryForm"
+			path="/ManagePostQuery" scope="request"
+			type="com.web.userPost.ManagePostQueryAction">
+			<forward name="querysuccess" path="/managepost.jsp" />
+			<forward name="queryfailure" path="/managepostquery.jsp" />
+		</action>
+
+		<action input="managepost.jsp" name="ManagePostForm" path="/UpdatePost"
+			scope="request" type="com.web.userPost.UpdatePostAction">
+			<forward name="postsuccess" path="/postsuccess.jsp" />
+		</action>
+
+		<action input="managepost.jsp" name="ManagePostForm" path="/DeletePost"
+			scope="request" type="com.web.userPost.DeletePostAction">
+			<forward name="deletesuccess" path="/deletesuccess.jsp" />
+		</action>
+
+		<action name="ViewPostForm" path="/ViewPostPage" scope="request"
+			type="com.web.viewPost.ViewPostAction">
+			<forward name="viewpost" path="/viewpostpage.jsp" />
+		</action>
+
+		<action name="CreateUserForm" path="/CreateAccount" scope="request"
+			type="com.web.createUser.CreateUserAction" validate="false">
+			<forward name="success" path="/createusersuccess.jsp" />
+			<forward name="failure" path="/createuseraccount.jsp" />
+		</action>
+		<action forward="/createuseraccount.jsp" path="/CreateUserAccount" />
+		<action forward="/index.jsp" path="/cyslistWeb" />
+	</action-mappings>
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+	<message-resources parameter="com/web/login/ApplicationResource" />
+
+
+
+
+	<!-- ========================= Tiles plugin =============================== -->
+	<!-- This plugin initialize Tiles definition factory. This later can takes 
+		some parameters explained here after. The plugin first read parameters from 
+		web.xml, thenoverload them with parameters defined here. All parameters are 
+		optional. The plugin should be declared in each struts-config file. - definitions-config: 
+		(optional) Specify configuration file names. There can be several comma separated 
+		file names (default: ?? ) - moduleAware: (optional - struts1.1) Specify if 
+		the Tiles definition factory is module aware. If true (default), there will 
+		be one factory for each Struts module. If false, there will be one common 
+		factory for all module. In this later case, it is still needed to declare 
+		one plugin per module. The factory will be initialized with parameters found 
+		in the first initialized plugin (generally the one associated with the default 
+		module). true : One factory per module. (default) false : one single shared 
+		factory for all modules - definitions-parser-validate: (optional) Specify 
+		if xml parser should validate the Tiles configuration file. true : validate. 
+		DTD should be specified in file header (default) false : no validation Paths 
+		found in Tiles definitions are relative to the main context. -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<!-- ========================= Validator plugin ================================= -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+
 </struts-config>

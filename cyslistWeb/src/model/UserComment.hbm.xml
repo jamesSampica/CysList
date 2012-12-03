@@ -11,7 +11,7 @@
     	</id>
     	<property name="comment"/>
 
-    	<one-to-one name="user" class="model.User" column="User" cascade="all" />
+    	<one-to-one name="user" class="model.User" cascade="all" />
     	
     </class>
 
