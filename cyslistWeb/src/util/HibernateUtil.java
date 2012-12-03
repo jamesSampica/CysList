@@ -75,6 +75,7 @@ public class HibernateUtil {
         postToUpdate.setContent(content);
         postToUpdate.setEmail(email);
         postToUpdate.setTitle(title);
+        postToUpdate.setDate(new Date());
         
         session.save(postToUpdate);
         session.getTransaction().commit();

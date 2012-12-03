@@ -8,7 +8,6 @@
 <struts-config>
     <form-beans>
     	<form-bean name="LoginForm" type="com.web.login.LoginForm"/>
-        <form-bean name="LoginForm" type="com.web.login.LoginForm"/>
         <form-bean name="UserPostForm" type="com.web.userPost.UserPostForm"/>
         <form-bean name="ManagePostQueryForm" type="com.web.userPost.ManagePostQueryForm"/>
         <form-bean name="ManagePostForm" type="com.web.userPost.ManagePostForm"/>
