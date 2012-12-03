@@ -16,8 +16,19 @@ import org.hibernate.Session;
 
 import util.HibernateUtil;
 
+/**
+ * 
+ * @author James Sampica
+ * Defines the action for clicking a category on the homepage, gets a collection of posts associated with that topic
+ */
 public class TopicPostsPageAction extends org.apache.struts.action.Action {
 
+	/**
+	 * @param mapping Actionmapping for struts
+	 * @param form Actionform for the form object
+	 * @param request Request object 
+	 * @param response Response object
+	 */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {

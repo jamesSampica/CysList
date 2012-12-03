@@ -10,6 +10,11 @@ import org.apache.struts.action.ActionForward;
 
 import util.HibernateUtil;
 
+/**
+ * 
+ * @author James Sampica
+ * Defines the action for when a post is edited and the edit button is clicked
+ */
 public class UpdatePostAction extends org.apache.struts.action.Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,

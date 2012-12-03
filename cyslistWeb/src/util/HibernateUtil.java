@@ -2,17 +2,17 @@
  * 
  */
 package util;
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
 
 import model.Post;
 
+import org.apache.struts.upload.FormFile;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 /**
- * @author Hibernate download
- *
+ * @author James Sampica
+ * Defines the session factory for hibernate and common methods used for database queries
  */
 public class HibernateUtil {
 
@@ -33,7 +33,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
     
-    public static String createAndStorePost(String topic, String content, String title, String email){
+    public static String createAndStorePost(String topic, String content, String title, String email, FormFile image){
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         
@@ -41,10 +41,9 @@ public class HibernateUtil {
         newPost.setContent(content);
         newPost.setEmail(email);
         newPost.setDate(new Date());
-        
         newPost.setTitle(title);
         newPost.setTopic(topic);
-        
+
         Random gen = new Random();
         String key = String.valueOf(Math.abs(gen.nextLong())) + Math.abs(title.hashCode());
         newPost.setPostKey(key);

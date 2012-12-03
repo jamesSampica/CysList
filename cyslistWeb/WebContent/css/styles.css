@@ -11,4 +11,11 @@
     color: #0000FF;
     cursor: pointer;
     font: inherit;
-    text-decoration: underline;}
+    text-decoration: underline;
+    }
+    
+.imageSizeScale {
+    max-height: 450px;
+    max-width: 700px;
+    }
+    

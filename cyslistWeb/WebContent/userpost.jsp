@@ -18,7 +18,7 @@
             	Image : <html:file name="UserPostForm" value="Browse ..." property="image" /><br>
             	Topic : <br>
             		<html:radio property="topic" value="housing" /> housing<br>
-            		<html:radio property="topic" value="hooks" /> books<br> 
+            		<html:radio property="topic" value="books" /> books<br> 
                   	<html:radio property="topic" value="tickets"/> tickets<br>
                   	<html:radio property="topic" value="furniture" /> furniture<br>
                   	<html:radio property="topic" value="other"/> other<br>

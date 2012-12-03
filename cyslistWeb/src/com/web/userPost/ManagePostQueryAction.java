@@ -12,8 +12,19 @@ import org.apache.struts.action.ActionForward;
 
 import util.HibernateUtil;
 
+/**
+ * 
+ * @author James Sampica
+ * Defines the action that occurs when a key has been entered and search clicked
+ */
 public class ManagePostQueryAction extends org.apache.struts.action.Action {
 
+	/**
+	 * @param mapping Actionmapping for struts
+	 * @param form Actionform for the form object
+	 * @param request Request object 
+	 * @param response Response object
+	 */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {

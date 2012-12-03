@@ -2,50 +2,102 @@ package com.web.userPost;
 
 import org.apache.struts.upload.FormFile;
 
-
+/**
+ * 
+ * @author James Sampica
+ * Defines the form for a new user post
+ */
 public class UserPostForm extends org.apache.struts.action.ActionForm {
     
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8405309615364232978L;
-	
 	private String content;
 	private String topic;
 	private String title;
 	private String email;
 	private FormFile image;
 	
+	/**
+	 * class constructor
+	 */
 	public UserPostForm(){
 		super();
 	}
+	
+	/**
+	 * 
+	 * @return the post topic
+	 */
 	public String getTopic(){
 		return topic;
 	}
+	
+	/**
+	 * 
+	 * @param topic the post topic
+	 */
 	public void setTopic(String topic){
 		this.topic = topic;
 	}
+	
+	/**
+	 * 
+	 * @return the post content
+	 */
 	public String getContent(){
 		return content;
 	}
+	
+	/**
+	 * 
+	 * @param content the post content
+	 */
 	public void setContent(String content){
 		this.content = content;
 	}
+	
+	/**
+	 * 
+	 * @return the post title
+	 */
 	public String getTitle(){
 		return title;
 	}
+	
+	/**
+	 * 
+	 * @param title the post title
+	 */
 	public void setTitle(String title){
 		this.title = title;
 	}
+	
+	/**
+	 * 
+	 * @return the post email
+	 */
 	public String getEmail(){
 		return email;
 	}
+	
+	/**
+	 * 
+	 * @param email the post email
+	 */
 	public void setEmail(String email){
 		this.email = email;
 	}
+	
+	/**
+	 * 
+	 * @return the post image
+	 */
 	public FormFile getImage() {  
 		return image;  
-	}    
+	} 
+	
+	/**
+	 * 
+	 * @param image the post image
+	 */
 	public void setImage(FormFile image) {  
 		this.image = image;  
 	}
