@@ -14,7 +14,7 @@
 	</head>
 	<body>
  	<h1>  ${post.title}</h1>
-
+	<a href="/cyslistWeb/" id="home">home</a>
 	<div>
 		<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="30%" cellpadding="5" cellspacing="1">
 			<tr>
