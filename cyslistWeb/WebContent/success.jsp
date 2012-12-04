@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%
+response.setHeader("Refresh", "5;url=index.jsp");
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -10,11 +13,9 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 		<script language="JavaScript" type="text/javascript">  
 			var count =6;  
-			var redirect="/cyslistWeb/";  
   
 			function countDown(){  
  				if (count <=0){  
- 			 		window.location = redirect;  
  				}
  				else{  
  	 				count--;  

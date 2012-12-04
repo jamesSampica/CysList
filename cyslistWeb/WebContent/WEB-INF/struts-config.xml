@@ -25,12 +25,6 @@
 	</global-forwards>
 
 	<action-mappings>
-		<action input="index.jsp" name="LoginForm" path="/Login" scope="session"
-			type="com.web.login.LoginAction">
-			<forward name="success" path="/success.jsp" />
-			<forward name="failure" path="/failure.jsp" />
-		</action>
-
 		<action input="index.jsp" name="TopicPostsPageForm" path="/TopicPosts"
 			scope="request" type="com.web.viewTopic.TopicPostsPageAction">
 			<forward name="topicResults" path="/topicPosts.jsp" />
@@ -73,6 +67,12 @@
 		</action>
 		<action forward="/createuseraccount.jsp" path="/CreateUserAccount" />
 		<action forward="/index.jsp" path="/cyslistWeb" />
+
+		<action name="LoginForm" path="/Login" scope="session"
+			type="com.web.login.LoginAction" validate="false">
+			<forward name="success" path="/success.jsp" />
+			<forward name="failure" path="/index.jsp" />
+		</action>
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
