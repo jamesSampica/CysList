@@ -1,6 +1,6 @@
-<%@page import="util.Emailer"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@ page import="util.Emailer"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%
 	String name = (String) request.getAttribute("name");
@@ -8,7 +8,7 @@
 
 	request.removeAttribute("name");
 	request.removeAttribute("email");
-
+	
 	Emailer.sendConfirmationEmail(email, name);
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

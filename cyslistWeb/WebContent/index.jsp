@@ -32,6 +32,8 @@
 		<html:errors />
 	</div>
 	<jsp:include page="parts/loginlogout.jsp" />
+	<br />
+	<html:link action="/DeleteUserAccount">Delete Account by Name</html:link>
 	<h4>Sell/Buy</h4>
 	<table>
 		<tr>

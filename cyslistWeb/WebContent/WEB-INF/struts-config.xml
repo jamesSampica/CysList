@@ -14,6 +14,7 @@
 		<form-bean name="ViewPostForm" type="com.web.viewPost.ViewPostForm" />
 		<form-bean name="TopicPostsPageForm" type="com.web.viewTopic.TopicPostsPageForm" />
 		<form-bean name="CreateUserForm" type="com.web.createUser.CreateUserForm" />
+		<form-bean name="DeleteUserForm" type="com.web.deleteUser.DeleteUserForm" />
 	</form-beans>
 
 	<global-exceptions>
@@ -73,7 +74,15 @@
 			<forward name="success" path="/success.jsp" />
 			<forward name="failure" path="/index.jsp" />
 		</action>
+
 		<action forward="/logout.jsp" path="/Logout" />
+
+		<action name="DeleteUserForm" path="/DeleteAccount" scope="request"
+			type="com.web.deleteUser.DeleteUserAction" validate="false">
+			<forward name="success" path="/deleteusersuccess.jsp" />
+			<forward name="failure" path="/deleteuser.jsp" />
+		</action>
+		<action forward="/deleteuser.jsp" path="/DeleteUserAccount" />
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />

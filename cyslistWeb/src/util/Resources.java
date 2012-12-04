@@ -15,4 +15,9 @@ public final class Resources {
 	 * The failure string to use when finding a forward for a failure.
 	 */
 	public static final String FAILURE = "failure";
+
+	/**
+	 * The string used to store/get the active user.
+	 */
+	public static final String ACTIVE_USER = "active_user";
 }

@@ -133,7 +133,7 @@ public class HibernateUtil {
 			return false;
 	}
 
-	public static User findUser(String name, String password) {
+	public static User findUserByName(String name) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
@@ -141,5 +141,24 @@ public class HibernateUtil {
 				.setParameter("pname", name).uniqueResult();
 		session.getTransaction().commit();
 		return user;
+	}
+	
+	public static User findUserByEmail(String email) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+
+		User user = (User) session.createQuery("from User where email = :pemail")
+				.setParameter("pemail", email).uniqueResult();
+		session.getTransaction().commit();
+		return user;
+	}
+	
+	public static void deleteUser(User toDel) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		session.delete(toDel);
+		
+		session.getTransaction().commit();
 	}
 }

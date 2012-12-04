@@ -1,10 +1,18 @@
-<%@page import="org.apache.struts.action.ActionMessage"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="org.apache.struts.action.ActionErrors"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="org.apache.struts.action.ActionMessage"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="org.apache.struts.action.ActionErrors"%>
+<%@ page import="util.Resources"%>
+<%@ page import="model.User"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
+	boolean anon = (request.getSession().getAttribute(
+			Resources.ACTIVE_USER) == null) ? true : false;
+	if (!anon) {
+		response.setHeader("Refresh", "0;url=index.jsp");
+	}
+
 	ActionErrors errors = (ActionErrors) request.getAttribute("errors");
 	String nameError = "";
 	String passError = "";

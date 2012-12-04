@@ -35,8 +35,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 		}
 
 		// Get the user.
-		User user = HibernateUtil.findUser(loginForm.getUserName(),
-				loginForm.getPassword());
+		User user = HibernateUtil.findUserByName(loginForm.getUserName());
 
 		// If the user is null, the account doesn't exist.
 		if (user == null) {
@@ -51,7 +50,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 					EncryptionService.getInstance().encrypt(
 							loginForm.getPassword()))) {
 				// Correct password
-				session.setAttribute("active_user", user);
+				session.setAttribute(Resources.ACTIVE_USER, user);
 				return mapping.findForward(Resources.SUCCESS);
 			}
 		} catch (NoSuchAlgorithmException e) {
