@@ -12,6 +12,7 @@
     	<property name="password"/>
     	<property name="rating"/>
     	<property name="email" />
+    	<property name="isAdmin" />
     	
 		<set name="posts" table="Post" cascade="all">
             <key>

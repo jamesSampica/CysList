@@ -52,6 +52,11 @@
 				<td><font color="red"><%=emailError%></font></td>
 			</tr>
 			<tr>
+				<td>Admin Key:</td>
+				<td><html:text name="CreateUserForm" property="adminKey" /></td>
+				<td></td>
+			</tr>
+			<tr>
 				<td></td>
 				<td><html:submit value="Submit" /></td>
 			</tr>

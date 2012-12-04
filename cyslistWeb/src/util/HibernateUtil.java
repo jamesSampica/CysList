@@ -4,6 +4,7 @@
 package util;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import model.Post;
@@ -102,22 +103,34 @@ public class HibernateUtil {
 		session.getTransaction().commit();
 	}
 
-	public static String createAndStoreUser(String name, String email,
-			String password) {
+	@SuppressWarnings("unchecked")
+	public static boolean createAndStoreUser(String name, String email,
+			String password, String adminKey) {
 		User toAdd = new User();
 		toAdd.setName(name);
 		toAdd.setPassword(password);
 		toAdd.setEmail(email);
 		toAdd.setRating(0);
+		toAdd.setIsAdmin((adminKey.equals(Resources.ADMIN_KEY)) ? true : false);
 
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		// TODO check for existing account with same email.
-		session.save(toAdd);
+		// TODO check for existing account with same email or name.
+		List<User> check = (List<User>) session
+				.createQuery("from User where name = :pname or email = :pemail")
+				.setParameter("pname", name).setParameter("pemail", email)
+				.list();
+
+		if (check.isEmpty())
+			session.save(toAdd);
 
 		session.getTransaction().commit();
-		return "success";
+
+		if (check.isEmpty())
+			return true;
+		else
+			return false;
 	}
 
 	public static User findUser(String name, String password) {

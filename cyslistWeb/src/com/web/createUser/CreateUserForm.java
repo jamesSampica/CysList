@@ -18,9 +18,7 @@ public class CreateUserForm extends ActionForm {
 	private String name;
 	private String email;
 	private String password;
-
-	public CreateUserForm() {
-	}
+	private String adminKey;
 
 	public String getName() {
 		return name;
@@ -46,11 +44,18 @@ public class CreateUserForm extends ActionForm {
 		this.password = password;
 	}
 
+	public String getAdminKey() {
+		return adminKey;
+	}
+
+	public void setAdminKey(String adminKey) {
+		this.adminKey = adminKey;
+	}
+
 	@Override
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
-		String oldPass = password;
 
 		if (name == null || name.length() < 1) {
 			errors.add("name", new ActionMessage("User Name is required."));
@@ -62,15 +67,18 @@ public class CreateUserForm extends ActionForm {
 			errors.add("email", new ActionMessage(
 					"Must provided a valid Iowa State email."));
 		}
+		return errors;
+	}
 
-		if (errors.isEmpty()) {
-			try {
-				password = EncryptionService.getInstance().encrypt(password);
-			} catch (NoSuchAlgorithmException e) {
-				password = oldPass;
-				errors.add("password", new ActionMessage(
-						"Error encrypting password."));
-			}
+	public ActionErrors encryptPassword() {
+		String oldPass = password;
+		ActionErrors errors = new ActionErrors();
+		try {
+			password = EncryptionService.getInstance().encrypt(password);
+		} catch (NoSuchAlgorithmException e) {
+			password = oldPass;
+			errors.add("password", new ActionMessage(
+					"Error encrypting password."));
 		}
 		return errors;
 	}

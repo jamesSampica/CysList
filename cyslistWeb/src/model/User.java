@@ -8,12 +8,14 @@ public class User {
 	String name;
 	String password;
 	String email;
+	boolean isAdmin;
 
 	int rating;
 	Set<Post> posts;
 
 	public User() {
 		posts = new HashSet<Post>();
+		isAdmin = false;
 	}
 
 	public long getUserId() {
@@ -62,5 +64,13 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 }

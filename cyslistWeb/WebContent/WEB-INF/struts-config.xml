@@ -73,6 +73,7 @@
 			<forward name="success" path="/success.jsp" />
 			<forward name="failure" path="/index.jsp" />
 		</action>
+		<action forward="/logout.jsp" path="/Logout" />
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />

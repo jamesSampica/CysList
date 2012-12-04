@@ -16,6 +16,7 @@ import org.apache.struts.action.ActionMessage;
 
 import util.EncryptionService;
 import util.HibernateUtil;
+import util.Resources;
 
 public class LoginAction extends org.apache.struts.action.Action {
 
@@ -30,7 +31,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 		// failure.
 		if (!errors.isEmpty()) {
 			request.setAttribute("errors", errors);
-			return mapping.findForward("failure");
+			return mapping.findForward(Resources.FAILURE);
 		}
 
 		// Get the user.
@@ -41,7 +42,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 		if (user == null) {
 			errors.add("userName", new ActionMessage("Account doesn't exist."));
 			request.setAttribute("errors", errors);
-			return mapping.findForward("failure");
+			return mapping.findForward(Resources.FAILURE);
 		}
 
 		// Check password
@@ -51,13 +52,13 @@ public class LoginAction extends org.apache.struts.action.Action {
 							loginForm.getPassword()))) {
 				// Correct password
 				session.setAttribute("active_user", user);
-				return mapping.findForward("success");
+				return mapping.findForward(Resources.SUCCESS);
 			}
 		} catch (NoSuchAlgorithmException e) {
 		}
 
 		errors.add("password", new ActionMessage("Wrong password."));
 		request.setAttribute("errors", errors);
-		return mapping.findForward("failure");
+		return mapping.findForward(Resources.FAILURE);
 	}
 }
