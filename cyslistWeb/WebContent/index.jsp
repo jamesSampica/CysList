@@ -64,13 +64,6 @@
 					<html:submit value="furniture" styleClass="linkbutton" />
 				</html:form></td>
 		</tr>
-		<tr>
-			<td><html:form action="/TopicPosts">
-					<html:hidden name="TopicPostsPageForm" property="topic"
-						value="other" />
-					<html:submit value="other" styleClass="linkbutton" />
-				</html:form></td>
-		</tr>
 	</table>
 	<h4>Study Groups</h4>
 	<table>

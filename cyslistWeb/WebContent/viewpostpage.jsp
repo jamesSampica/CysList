@@ -26,9 +26,11 @@
     		<tr>
     			<td>${post.content}</td>
     		</tr>
+    		<c:if test="${post.imageExt!='.'}">
     		<tr>
-    			<td><img class="imageSizeScale" src="images/${fn:substring(post.postKey, 12,-1)}${imageExt}" /></td>
-    		</tr>	
+    			<td><img class="imageSizeScale" alt="No image uploaded" src="images/${fn:substring(post.postKey, 12,-1)}${post.imageExt}" /></td>
+    		</tr>
+    		</c:if>
 		</table>
 	</div>
 </body>

@@ -21,7 +21,6 @@
             		<html:radio property="topic" value="books" /> books<br> 
                   	<html:radio property="topic" value="tickets"/> tickets<br>
                   	<html:radio property="topic" value="furniture" /> furniture<br>
-                  	<html:radio property="topic" value="other"/> other<br>
                   	<html:radio property="topic" value="engineering"/> engineering<br>
                   	<html:radio property="topic" value="art/design"/> art/design<br>
                   	<html:radio property="topic" value="other"/> other<br>

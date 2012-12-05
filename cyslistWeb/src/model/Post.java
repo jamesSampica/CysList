@@ -16,6 +16,7 @@ public class Post implements Comparable<Post>{
 	private String title;
 	private String postKey;
 	private String email;
+	private String imageExt;
 	
 	/**
 	 * class constructor
@@ -134,6 +135,14 @@ public class Post implements Comparable<Post>{
 	 */
 	public void setEmail(String email){
 		this.email = email;
+	}
+	
+	public String getImageExt(){
+		return imageExt;
+	}
+	
+	public void setImageExt(String imageExt){
+		this.imageExt = imageExt;
 	}
 	
 	@Override

@@ -39,8 +39,8 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 
-	public static String createAndStorePost(String topic, String content,
-			String title, String email, FormFile image) {
+	public static Post createAndStorePost(String topic, String content,
+			String title, String email, FormFile image, String ext) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
@@ -50,7 +50,8 @@ public class HibernateUtil {
 		newPost.setDate(new Date());
 		newPost.setTitle(title);
 		newPost.setTopic(topic);
-
+		newPost.setImageExt(ext);
+		
 		Random gen = new Random();
 		String key = String.valueOf(Math.abs(gen.nextLong()))
 				+ Math.abs(title.hashCode());
@@ -59,7 +60,7 @@ public class HibernateUtil {
 		session.save(newPost);
 		session.getTransaction().commit();
 
-		return key;
+		return newPost;
 	}
 
 	public static Post getPostByKey(String key) {
@@ -103,6 +104,18 @@ public class HibernateUtil {
 		session.getTransaction().commit();
 	}
 
+	public static void addPostToUser(Post p, User u){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		User user = (User) session.createQuery("from User as u left join fetch u.posts where u.name = :pname")
+				.setParameter("pname", u.getName()).uniqueResult();
+		user.getPosts().add(p);
+		
+		session.save(user);
+		session.getTransaction().commit();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static boolean createAndStoreUser(String name, String email,
 			String password, String adminKey) {
@@ -137,7 +150,7 @@ public class HibernateUtil {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		User user = (User) session.createQuery("from User where name = :pname")
+		User user = (User) session.createQuery("from User as u left join fetch u.posts where u.name = :pname")
 				.setParameter("pname", name).uniqueResult();
 		session.getTransaction().commit();
 		return user;
@@ -147,7 +160,7 @@ public class HibernateUtil {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		User user = (User) session.createQuery("from User where email = :pemail")
+		User user = (User) session.createQuery("from User as u left join fetch u.posts where email = :pemail")
 				.setParameter("pemail", email).uniqueResult();
 		session.getTransaction().commit();
 		return user;

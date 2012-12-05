@@ -13,6 +13,7 @@
     	<property name="postKey"/>
     	<property name="topic"/>
     	<property name="email"/>
+    	<property name="imageExt"/>
     	<property name="date" type="timestamp"/>
     	
     </class>

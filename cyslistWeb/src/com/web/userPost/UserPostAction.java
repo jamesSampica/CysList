@@ -6,12 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Post;
+import model.User;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.upload.FormFile;
 
 import util.HibernateUtil;
+import util.Resources;
 
 /**
  * 
@@ -35,18 +39,18 @@ public class UserPostAction extends org.apache.struts.action.Action {
         
         System.out.println(upf.getTopic() + " " + upf.getContent() + " " + upf.getTitle() + " " + upf.getImage());
         
-        String key = HibernateUtil.createAndStorePost(upf.getTopic(), upf.getContent(), upf.getTitle(), upf.getEmail(), upf.getImage());
+        String ext = "." + getExtension(upf.getImage());;
+        Post createdPost = HibernateUtil.createAndStorePost(upf.getTopic(), upf.getContent(), upf.getTitle(), upf.getEmail(), upf.getImage(), ext);
         
         //Save image
-        String ext = "";
+        
         if(upf.getImage() != null){
             try{
-            	ext = "." + getExtension(upf.getImage());
             	System.out.println(request.getSession().getServletContext().getRealPath("/")
-            			+ "images\\" + key.substring(12) + ext);
+            			+ "images\\" + createdPost.getPostKey().substring(12) + ext);
             	
             	FileOutputStream fos = new FileOutputStream(request.getSession().getServletContext().getRealPath("/")
-            			+ "images\\" + key.substring(12) + ext);
+            			+ "images\\" + createdPost.getPostKey().substring(12) + ext);
                 fos.write(upf.getImage().getFileData()); 
                 fos.close();
                 
@@ -55,8 +59,14 @@ public class UserPostAction extends org.apache.struts.action.Action {
             }
         }
         
-        httpSession.setAttribute("imageExt", ext);
-        httpSession.setAttribute("postkey", key);
+        //Add post to user if exists(logged in)
+        User loggedInUser = (User) httpSession.getAttribute(Resources.ACTIVE_USER);
+        if(loggedInUser != null){
+        	HibernateUtil.addPostToUser(createdPost, loggedInUser);
+        	System.out.println("Added post " + createdPost.getTitle() + " to " + loggedInUser.getName());
+        }
+        
+        httpSession.setAttribute("postkey", createdPost.getPostKey());
 		 
 		return mapping.findForward("postsuccess");
     }
