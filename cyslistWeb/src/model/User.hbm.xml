@@ -16,7 +16,7 @@
     	
 		<set name="posts" table="Post" cascade="all">
             <key>
-                <column name="userId" not-null="true" />
+                <column name="userId" not-null="false" />
             </key>
             <one-to-many class="model.Post" />
         </set>
