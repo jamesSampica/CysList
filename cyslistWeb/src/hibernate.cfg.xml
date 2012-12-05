@@ -11,7 +11,7 @@
     
 	<property name="connection.username">jim</property>
 	<property name="connection.password">hickory</property>
-d
+
 
     <!-- SQL dialect -->
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
