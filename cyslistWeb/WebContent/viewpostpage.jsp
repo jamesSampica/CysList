@@ -21,7 +21,7 @@
     			<td>Date : ${post.date}</td>
     		</tr>
     		<tr>
-    			<td>Email : ${post.email}</td>
+    			<td>Email : <a href="mailto:${post.email}">${post.email}</a></td>
     		</tr>	
     		<tr>
     			<td>${post.content}</td>
@@ -33,5 +33,8 @@
     		</c:if>
 		</table>
 	</div>
+	<iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"></iframe>
 </body>
 </html>
