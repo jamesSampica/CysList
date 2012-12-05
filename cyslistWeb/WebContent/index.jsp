@@ -1,6 +1,3 @@
-<%@page import="org.apache.struts.action.ActionMessage"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="org.apache.struts.action.ActionErrors"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
