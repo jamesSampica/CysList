@@ -13,6 +13,8 @@
         <h1>Post Success!</h1>
         <div>
 			Here is your key: <%= session.getAttribute("postkey") %>
+			<br />
+			Please save your key for future reference.
 		</div>
 		<p><a href="/cyslistWeb/">Go To Home</a> </p>
     </body>
