@@ -16,12 +16,6 @@
 </head>
 <body>
 	<h1>cysList</h1>
-	<table class="title">
-		<form method="post" action="">
-			<textarea rows="2" cols="5">enter here</textarea>
-			<input type="submit" value="search" />
-		</form>
-	</table>
 	<h4>
 		<html:link action="/UserPostPage">post</html:link>
 	</h4>
