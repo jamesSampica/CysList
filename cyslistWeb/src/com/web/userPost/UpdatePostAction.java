@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.User;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -27,7 +29,14 @@ public class UpdatePostAction extends org.apache.struts.action.Action {
         System.out.println("Updating: " + mupf.topic + " " + mupf.content + " " + mupf.title + " " + mupf);
         
         HibernateUtil.updatePostByKey(httpSession.getAttribute("postkey").toString(), mupf.email, mupf.title, mupf.content);
-		 
+		
+        User loggedInUser = (User) httpSession.getAttribute("active_user");
+        if(loggedInUser != null){
+        	User user = HibernateUtil.findUserByName(loggedInUser.getName());
+        	httpSession.setAttribute("active_user", user);
+        }
+        
+        
 		return mapping.findForward("postsuccess");
     }
 }

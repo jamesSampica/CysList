@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,11 +12,39 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
-			<h1>Manage Post</h1>
+	<h1>Manage Post</h1>
+	<c:choose>
+		<c:when test="${active_user != null}">
+			<table border="1" bordercolor="#000000"
+				style="background-color: #FFFFFF" width="40%" cellpadding="5"
+				cellspacing="1">
+				<tr><td>#</td><td>key</td><td>title</td><td>topic</td><td>date</td></tr>
+				<c:set var="counter" value="1" />
+				<c:forEach items="${active_user.posts}" var="entry">
+					<tr>
+						<td>${counter}</td>
+						<html:form action="/ManagePostQuery">
+							<html:hidden name="ManagePostQueryForm" property="key"
+								value="${entry.postKey}" />
+							<td width="50%"><html:submit value="${entry.postKey}"
+									styleClass="linkbutton" /></td>
+						</html:form>
+						<td>${entry.title}</td>
+						<td>${entry.topic}</td>
+						<td>${entry.date}</td>
+					</tr>
+					<c:set var="counter" value="${counter+1}" />
+				</c:forEach>
+			</table>
+		</c:when>
+		<c:otherwise>
 			<h4>Enter your key to edit/delete your post</h4>
- 	        <html:form action="/ManagePostQuery" >
-            	Key : <html:text name="ManagePostQueryForm" property="key" /> 
-            	<html:submit value="Search" />
-       		</html:form>
-	</body>
+			<html:form action="/ManagePostQuery">
+            			Key : <html:text name="ManagePostQueryForm"
+					property="key" />
+				<html:submit value="Search" />
+			</html:form>
+		</c:otherwise>
+	</c:choose>
+</body>
 </html>

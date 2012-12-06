@@ -60,10 +60,12 @@ public class UserPostAction extends org.apache.struts.action.Action {
         }
         
         //Add post to user if exists(logged in)
-        User loggedInUser = (User) httpSession.getAttribute(Resources.ACTIVE_USER);
+        User loggedInUser = (User) httpSession.getAttribute("active_user");
         if(loggedInUser != null){
         	HibernateUtil.addPostToUser(createdPost, loggedInUser);
         	System.out.println("Added post " + createdPost.getTitle() + " to " + loggedInUser.getName());
+        	User user = HibernateUtil.findUserByName(loggedInUser.getName());
+        	httpSession.setAttribute("active_user", user);
         }
         
         httpSession.setAttribute("postkey", createdPost.getPostKey());

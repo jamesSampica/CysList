@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.User;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -30,8 +32,15 @@ public class DeletePostAction extends org.apache.struts.action.Action {
         
         HttpSession httpSession = request.getSession(true);
 
+        User loggedInUser = (User) httpSession.getAttribute("active_user");
+        if(loggedInUser != null){
+        	HibernateUtil.deletePostFromUser(loggedInUser, httpSession.getAttribute("postkey").toString());
+        	User user = HibernateUtil.findUserByName(loggedInUser.getName());
+        	httpSession.setAttribute("active_user", user);
+        }
+        
         HibernateUtil.deletePostByKey(httpSession.getAttribute("postkey").toString());
-
+        
 		return mapping.findForward("deletesuccess");
     }
 }
