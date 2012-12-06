@@ -51,7 +51,7 @@ public class HibernateUtil {
 		newPost.setTitle(title);
 		newPost.setTopic(topic);
 		newPost.setImageExt(ext);
-		
+
 		Random gen = new Random();
 		String key = String.valueOf(Math.abs(gen.nextLong()))
 				+ Math.abs(title.hashCode());
@@ -104,18 +104,20 @@ public class HibernateUtil {
 		session.getTransaction().commit();
 	}
 
-	public static void addPostToUser(Post p, User u){
+	public static void addPostToUser(Post p, User u) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		
-		User user = (User) session.createQuery("from User as u left join fetch u.posts where u.name = :pname")
+
+		User user = (User) session
+				.createQuery(
+						"from User as u left join fetch u.posts where u.name = :pname")
 				.setParameter("pname", u.getName()).uniqueResult();
 		user.getPosts().add(p);
-		
+
 		session.save(user);
 		session.getTransaction().commit();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static boolean createAndStoreUser(String name, String email,
 			String password, String adminKey) {
@@ -131,9 +133,8 @@ public class HibernateUtil {
 
 		// TODO check for existing account with same email or name.
 		List<User> check = (List<User>) session
-				.createQuery("from User where name = :pname or email = :pemail")
-				.setParameter("pname", name).setParameter("pemail", email)
-				.list();
+				.createQuery("from User where name = :pname")
+				.setParameter("pname", name).list();
 
 		if (check.isEmpty())
 			session.save(toAdd);
@@ -150,28 +151,32 @@ public class HibernateUtil {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		User user = (User) session.createQuery("from User as u left join fetch u.posts where u.name = :pname")
+		User user = (User) session
+				.createQuery(
+						"from User as u left join fetch u.posts where u.name = :pname")
 				.setParameter("pname", name).uniqueResult();
 		session.getTransaction().commit();
 		return user;
 	}
-	
+
 	public static User findUserByEmail(String email) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		User user = (User) session.createQuery("from User as u left join fetch u.posts where email = :pemail")
+		User user = (User) session
+				.createQuery(
+						"from User as u left join fetch u.posts where email = :pemail")
 				.setParameter("pemail", email).uniqueResult();
 		session.getTransaction().commit();
 		return user;
 	}
-	
+
 	public static void deleteUser(User toDel) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		
+
 		session.delete(toDel);
-		
+
 		session.getTransaction().commit();
 	}
 }

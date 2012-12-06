@@ -52,7 +52,7 @@ public class CreateUserAction extends Action {
 		// reset the password.
 		uForm.setPassword(oldPass);
 		errors.add("name", new ActionMessage(
-				"Account with that email or name already exists."));
+				"Account with that name already exists."));
 		request.setAttribute("errors", errors);
 		return mapping.findForward(Resources.FAILURE);
 	}
