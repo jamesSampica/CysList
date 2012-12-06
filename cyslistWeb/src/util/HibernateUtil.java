@@ -133,6 +133,20 @@ public class HibernateUtil {
 		session.getTransaction().commit();
 	}
 
+	/**
+	 * Creates a new user and attempts to store it in the database. The user
+	 * will not be stored if a user with the same account name already exists.
+	 * 
+	 * @param name
+	 *            The name of the account.
+	 * @param email
+	 *            The email of the account.
+	 * @param password
+	 *            The password (encrypted) of the account.
+	 * @param adminKey
+	 *            Whether the user is an admin or not.
+	 * @return True if successfully added to the database, false otherwise.
+	 */
 	@SuppressWarnings("unchecked")
 	public static boolean createAndStoreUser(String name, String email,
 			String password, String adminKey) {
@@ -162,6 +176,13 @@ public class HibernateUtil {
 			return false;
 	}
 
+	/**
+	 * Attempts to search for a user with the given account name.
+	 * 
+	 * @param name
+	 *            The name of the user to search for.
+	 * @return The user found or null if not (I think).
+	 */
 	public static User findUserByName(String name) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -174,6 +195,13 @@ public class HibernateUtil {
 		return user;
 	}
 
+	/**
+	 * Attempts to search for a user with the given email.
+	 * 
+	 * @param email
+	 *            The email of the user to search for.
+	 * @return The user found or null if not (I think).
+	 */
 	public static User findUserByEmail(String email) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -186,11 +214,50 @@ public class HibernateUtil {
 		return user;
 	}
 
+	/**
+	 * Deletes a single user from the database.
+	 * 
+	 * @param toDel
+	 *            The User to delete.
+	 */
 	public static void deleteUser(User toDel) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
 		session.delete(toDel);
+
+		session.getTransaction().commit();
+	}
+
+	/**
+	 * Gets a list of all users in the database.
+	 * 
+	 * @return A list of User.
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<User> getAllUsers() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+
+		List<User> users = session.createQuery("from User").list();
+
+		session.getTransaction().commit();
+		return users;
+	}
+
+	/**
+	 * Deletes all users in the provided list.
+	 * 
+	 * @param toDel
+	 *            A list of User to delete.
+	 */
+	public static void deleteUser(List<User> toDel) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+
+		for (User u : toDel) {
+			session.delete(u);
+		}
 
 		session.getTransaction().commit();
 	}

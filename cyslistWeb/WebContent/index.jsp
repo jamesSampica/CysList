@@ -24,7 +24,7 @@
 	</div>
 		<jsp:include page="loginlogout.jsp" />
 	<br />
-	<html:link action="/DeleteUserAccount">Delete Account by Name</html:link>
+	<html:link action="/UserList">Delete Account</html:link>
 	<h4>Sell/Buy</h4>
 	<table>
 		<tr>

@@ -11,6 +11,12 @@ import org.apache.struts.action.ActionMessage;
 
 import util.EncryptionService;
 
+/**
+ * Form information for a create user attempt.
+ * 
+ * @author Tony
+ * 
+ */
 public class CreateUserForm extends ActionForm {
 
 	private static final long serialVersionUID = -8049016477300699212L;
@@ -70,6 +76,12 @@ public class CreateUserForm extends ActionForm {
 		return errors;
 	}
 
+	/**
+	 * Attempts to encrypt the password. If there are errors the password will
+	 * not be changed and the errors will be returned.
+	 * 
+	 * @return A list of errors that occurred.
+	 */
 	public ActionErrors encryptPassword() {
 		String oldPass = password;
 		ActionErrors errors = new ActionErrors();

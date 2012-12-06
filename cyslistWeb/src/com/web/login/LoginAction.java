@@ -16,8 +16,13 @@ import org.apache.struts.action.ActionMessage;
 
 import util.EncryptionService;
 import util.HibernateUtil;
-import util.Resources;
 
+/**
+ * Attempts to log in a user.
+ * 
+ * @author Tony
+ * 
+ */
 public class LoginAction extends org.apache.struts.action.Action {
 
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -31,7 +36,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 		// failure.
 		if (!errors.isEmpty()) {
 			request.setAttribute("errors", errors);
-			return mapping.findForward(Resources.FAILURE);
+			return mapping.findForward("failure");
 		}
 
 		// Get the user.
@@ -41,7 +46,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 		if (user == null) {
 			errors.add("userName", new ActionMessage("Account doesn't exist."));
 			request.setAttribute("errors", errors);
-			return mapping.findForward(Resources.FAILURE);
+			return mapping.findForward("failure");
 		}
 
 		// Check password
@@ -50,14 +55,14 @@ public class LoginAction extends org.apache.struts.action.Action {
 					EncryptionService.getInstance().encrypt(
 							loginForm.getPassword()))) {
 				// Correct password
-				session.setAttribute(Resources.ACTIVE_USER, user);
-				return mapping.findForward(Resources.SUCCESS);
+				session.setAttribute("active_user", user);
+				return mapping.findForward("success");
 			}
 		} catch (NoSuchAlgorithmException e) {
 		}
 
 		errors.add("password", new ActionMessage("Wrong password."));
 		request.setAttribute("errors", errors);
-		return mapping.findForward(Resources.FAILURE);
+		return mapping.findForward("failure");
 	}
 }

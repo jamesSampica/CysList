@@ -77,12 +77,16 @@
 
 		<action forward="/logout.jsp" path="/Logout" />
 
-		<action name="DeleteUserForm" path="/DeleteAccount" scope="request"
-			type="com.web.deleteUser.DeleteUserAction" validate="false">
-			<forward name="success" path="/deleteusersuccess.jsp" />
-			<forward name="failure" path="/deleteuser.jsp" />
+		<action path="/UserList" type="com.web.deleteUser.UserListAction"
+			name="DeleteUserForm" validate="false" scope="request">
+			<forward name="success" path="/deleteusers.jsp" />
+			<forward name="failure" path="/index.jsp" />
 		</action>
-		<action forward="/deleteuser.jsp" path="/DeleteUserAccount" />
+		<action path="/DeleteUser" type="com.web.deleteUser.CommittDeleteAction"
+			name="DeleteUserForm" validate="true" input="/UserList.do" scope="request">
+			<forward name="success" path="/UserList.do" />
+			<forward name="deleteself" path="/index.jsp" />
+		</action>
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />

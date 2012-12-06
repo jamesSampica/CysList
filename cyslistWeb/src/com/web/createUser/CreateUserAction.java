@@ -11,8 +11,13 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 import util.HibernateUtil;
-import util.Resources;
 
+/**
+ * Attempts to create a new user.
+ * 
+ * @author Tony
+ * 
+ */
 public class CreateUserAction extends Action {
 
 	@Override
@@ -29,14 +34,14 @@ public class CreateUserAction extends Action {
 				(HttpServletRequest) request);
 		if (!errors.isEmpty()) {
 			request.setAttribute("errors", errors);
-			return mapping.findForward(Resources.FAILURE);
+			return mapping.findForward("failure");
 		}
 
 		// Encrypt the password.
 		errors = uForm.encryptPassword();
 		if (!errors.isEmpty()) {
 			request.setAttribute("errors", errors);
-			return mapping.findForward(Resources.FAILURE);
+			return mapping.findForward("failure");
 		}
 
 		// Attempt to save it.
@@ -45,16 +50,16 @@ public class CreateUserAction extends Action {
 			request.setAttribute("name", uForm.getName());
 			request.setAttribute("email", uForm.getEmail());
 
-			return mapping.findForward(Resources.SUCCESS);
+			return mapping.findForward("success");
 		}
 
-		// Couldn't save because an account exists with the name or email, so
+		// Couldn't save because an account exists with the name, so
 		// reset the password.
 		uForm.setPassword(oldPass);
 		errors.add("name", new ActionMessage(
 				"Account with that name already exists."));
 		request.setAttribute("errors", errors);
-		return mapping.findForward(Resources.FAILURE);
+		return mapping.findForward("failure");
 	}
 
 }

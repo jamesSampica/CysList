@@ -5,6 +5,13 @@ import java.security.NoSuchAlgorithmException;
 
 import sun.misc.BASE64Encoder;
 
+/**
+ * Provides methods to encrypt strings and compare a raw string to an encrypted
+ * version.
+ * 
+ * @author Tony
+ * 
+ */
 public final class EncryptionService {
 
 	private static final EncryptionService instance = new EncryptionService();
@@ -13,6 +20,14 @@ public final class EncryptionService {
 		return instance;
 	}
 
+	/**
+	 * Encrypts the given string using SHA.
+	 * 
+	 * @param text
+	 *            The string to encrypt.
+	 * @return The encrypted value.
+	 * @throws NoSuchAlgorithmException
+	 */
 	public String encrypt(String text) throws NoSuchAlgorithmException {
 		MessageDigest md = MessageDigest.getInstance("SHA");
 		md.update(text.getBytes());
@@ -21,6 +36,17 @@ public final class EncryptionService {
 		return hash;
 	}
 
+	/**
+	 * Compares a raw string with an encryped string.
+	 * 
+	 * @param raw
+	 *            The raw string.
+	 * @param stored
+	 *            The encrypted string.
+	 * @return True if the encryped version of the raw string is the same as
+	 *         given encrypted string.
+	 * @throws NoSuchAlgorithmException
+	 */
 	public boolean comparePassword(String raw, String stored)
 			throws NoSuchAlgorithmException {
 		String hash = EncryptionService.getInstance().encrypt(raw);

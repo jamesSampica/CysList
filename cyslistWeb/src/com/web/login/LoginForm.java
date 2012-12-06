@@ -6,6 +6,12 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+/**
+ * Form information for a login attempt.
+ * 
+ * @author Tony
+ * 
+ */
 public class LoginForm extends org.apache.struts.action.ActionForm {
 
 	private static final long serialVersionUID = 3598101097797609629L;
@@ -32,6 +38,7 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
 		this.userName = userName;
 	}
 
+	@Override
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
