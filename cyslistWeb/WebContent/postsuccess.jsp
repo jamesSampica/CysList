@@ -16,6 +16,6 @@
 			<br />
 			Please save your key for future reference.
 		</div>
-		<p><a href="/cyslistWeb/">Go To Home</a> </p>
+		<p><a href="/cyslistWeb/">Go To Home</a></p>
     </body>
 </html>

@@ -1,11 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%
+	String currentURL = request.getRequestURL().toString();
+%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>CysList</title>
@@ -13,8 +16,25 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
- 	<h1>  ${post.title}</h1>
+	
+	<!-- Facebook JavaScript SDK -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=455177151207645";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<h1>${post.title}</h1>
 	<a href="/cyslistWeb/" id="home">home</a>
+	<br /><br />
+	<div class="fb-like" data-href="<%= currentURL %>" data-send="false" data-width="450" data-show-faces="true"></div>
 	<div>
 		<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="30%" cellpadding="5" cellspacing="1">
 			<tr>
@@ -32,9 +52,8 @@
     		</tr>
     		</c:if>
 		</table>
+		<br />
+		<div class="fb-comments" data-href="<%= currentURL %>" data-width="470" data-num-posts="5"></div>
 	</div>
-	<iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL"
-        scrolling="no" frameborder="0"
-        style="border:none; width:450px; height:80px"></iframe>
 </body>
 </html>
