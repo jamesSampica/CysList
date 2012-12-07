@@ -8,8 +8,7 @@
 <head>
 <title>CysList</title>
 <!-- Bootstrap -->
-<link href="./css/bootstrap.min.css" rel="stylesheet" media="screen">
-</style>
+<link href="./css/styles.css" rel="stylesheet" media="screen">
 <script src="./js/bootstrap.min.js" type="text/javascript"></script>
 <!-- jQuery -->
 <script src="http://code.jquery.com/jquery-latest.js"
@@ -61,28 +60,28 @@
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="housing" />
-								<html:submit value="housing" styleClass="linkbutton" />
+								<html:submit value="Housing" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="books" />
-								<html:submit value="books" styleClass="linkbutton" />
+								<html:submit value="Books" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="tickets" />
-								<html:submit value="tickets" styleClass="linkbutton" />
+								<html:submit value="Tickets" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="furniture" />
-								<html:submit value="furniture" styleClass="linkbutton" />
+								<html:submit value="Furniture" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 				</table>
