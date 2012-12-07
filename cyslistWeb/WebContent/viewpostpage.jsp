@@ -62,9 +62,8 @@
 		<br />
 <!-- 		Email seller -->
 		--> Interested?</br>
-		<a href="mailto:homer@example.com?subject=From cysList!"> Click here to email this seller</a>
-		
-<%-- 		<a href=" ${post.email} ?subject=From cysList!">Email this seller</a> --%>
+<!-- 		<a href="mailto:homer@example.com?subject=From cysList!"> Click here to email this seller</a> -->
+		<a href= "mailto:${post.email}?subject=From cysList!">Email this seller</a>
 		
 		</br>
 		</br>
