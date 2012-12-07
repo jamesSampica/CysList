@@ -25,16 +25,17 @@
 		
 		
 		
-	<c:if test="${active_user.isAdmin==true}">	
-<%-- 	<c:if test="${active_user!=NULL}">	 --%>
-	
+<%-- 	<c:if test="${active_user.isAdmin==true}">	 --%>
+<c:choose>
+<c:when test="${active_user !=null}">
+
 		<html:form action="/ViewProfile">
 			<html:hidden name="ViewProfileForm" property="name" value="${active_user.name} "/>
 			<html:submit value="viewProfile" styleClass="linkbutton" />
 		</html:form>	
-	</c:if>
-	
-	
+<%-- 	</c:if> --%>
+</c:when>
+</c:choose>	
 	
 	
 	<h4>
