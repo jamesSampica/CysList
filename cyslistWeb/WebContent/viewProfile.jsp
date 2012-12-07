@@ -29,10 +29,7 @@
 				<c:if test="${active_user.isAdmin==false}">
 					isAdmin: No
 				</c:if>
-			
 			 </h4>
-			
-
 		</tr>
 		
 		

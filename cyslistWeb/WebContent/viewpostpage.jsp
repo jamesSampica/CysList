@@ -60,9 +60,17 @@
     		</c:if>
 		</table>
 		<br />
+<!-- 		Email seller -->
+		--> Interested?</br>
+		<a href="mailto:homer@example.com?subject=From cysList!"> Click here to email this seller</a>
+		
+<%-- 		<a href=" ${post.email} ?subject=From cysList!">Email this seller</a> --%>
+		
+		</br>
+		</br>
 	<html:form action="/rateSeller">
 		<html:hidden name="UserRatingForm" property="email" value="${post.email} "/>
-		Rate this seller (boundary: between 1 and 5): </br>
+		-->Rate this seller (boundary: between 1 and 5): </br>
 		<html:text name="UserRatingForm" property="rating"/>
 		
 		<html:submit value="rate this seller" styleClass="button" />
