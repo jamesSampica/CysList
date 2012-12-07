@@ -12,6 +12,26 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="/cyslistWeb">CysList</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="/cyslistWeb">Home</a></li>
+						<li><html:link action="/UserPostPage">Create Post</html:link></li>
+						<li class="active"><html:link action="/ManagePostQueryPage">Manage Post</html:link></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
 	<h1>Manage Post</h1>
 	<c:choose>
 		<c:when test="${active_user != null}">
@@ -46,5 +66,6 @@
 			</html:form>
 		</c:otherwise>
 	</c:choose>
+	</div>
 </body>
 </html>
