@@ -10,12 +10,30 @@
 
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>CysList</title>
- 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
-	</head>
-	<body>
+<head>
+<title>CysList</title>
+<link href="./css/styles.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="/cyslistWeb">CysList</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="/cyslistWeb">Home</a></li>
+						<li><html:link action="/UserPostPage">Create Post</html:link></li>
+						<li><html:link action="/ManagePostQueryPage">Manage Post</html:link></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	<div class="container">
 	
 	<!-- Facebook JavaScript SDK -->
 	<div id="fb-root"></div>
@@ -39,7 +57,6 @@
 		<html:submit value="flag" styleClass="linkbutton" />
 	</html:form>
 	
-	
 	<br /><br />
 	<div class="fb-like" data-href="<%= currentURL %>" data-send="false" data-width="450" data-show-faces="true"></div>
 	<div>
@@ -48,7 +65,7 @@
     			<td>Date : ${post.date}</td>
     		</tr>
     		<tr>
-    			<td>Email : <a href="mailto:${post.email}">${post.email}</a></td>
+    			<td>Email : <a href="mailto:${post.email}?subject=From cysList!">${post.email}</a></td>
     		</tr>	
     		<tr>
     			<td>${post.content}</td>
@@ -60,25 +77,18 @@
     		</c:if>
 		</table>
 		<br />
-<!-- 		Email seller -->
-		--> Interested?</br>
-<!-- 		<a href="mailto:homer@example.com?subject=From cysList!"> Click here to email this seller</a> -->
-		<a href= "mailto:${post.email}?subject=From cysList!">Email this seller</a>
-		
-		</br>
-		</br>
+		<br />
 	<html:form action="/rateSeller">
 		<html:hidden name="UserRatingForm" property="email" value="${post.email} "/>
-		-->Rate this seller (boundary: between 1 and 5): </br>
+		--> Rate this seller (boundary: between 1 and 5): </br>
 		<html:text name="UserRatingForm" property="rating"/>
 		
 		<html:submit value="rate this seller" styleClass="button" />
 	</html:form>
 		
-		</br></br></br>
+		<br /><br /><br />
 		<div class="fb-comments" data-href="<%= currentURL %>" data-width="470" data-num-posts="5"></div>
 	</div>
-	
-	
+	</div>
 </body>
 </html>

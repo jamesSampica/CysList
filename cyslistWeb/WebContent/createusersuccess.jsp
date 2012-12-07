@@ -14,22 +14,40 @@
 <html>
 <head>
 <title>CysList</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/styles.css" type="text/css" />
+<link href="./css/styles.css" rel="stylesheet" media="screen">
 </head>
 <body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="/cyslistWeb">CysList</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="/cyslistWeb">Home</a></li>
+						<li><html:link action="/UserPostPage">Create Post</html:link></li>
+						<li><html:link action="/ManagePostQueryPage">Manage Post</html:link></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	<div class="container">
 	<h1>Thanks for signing up for an account.</h1>
 	<p>
 		A link to activate your account has been emailed to
 		<c:out value="${email}" />
 		.
 	</p>
-	<p>Actually, one hasn't been emailed but it can be done! You're
-		account has been created.</p>
+	<p>Your account has been created.</p>
 	<p>
 		Return to
 		<html:link action="/cyslistWeb">Cyslist Home</html:link>
 		.
 	</p>
+	</div>
 </body>
 </html>

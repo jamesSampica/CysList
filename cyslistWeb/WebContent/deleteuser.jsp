@@ -21,9 +21,30 @@
 
 <html>
 <head>
-<title>cysList</title>
+<title>CysList</title>
+<link href="./css/styles.css" rel="stylesheet" media="screen">
 </head>
 <body>
+-	<div class="navbar navbar-inverse navbar-fixed-top">
+-		<div class="navbar-inner">
+-			<div class="container">
+-				<a class="btn btn-navbar" data-toggle="collapse"
+-					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+-					class="icon-bar"></span> <span class="icon-bar"></span>
+-				</a> <a class="brand" href="/cyslistWeb">CysList</a>
+-				<div class="nav-collapse collapse">
+-					<ul class="nav">
+-						<li class="active"><a href="/cyslistWeb">Home</a></li>
+-						<li><html:link action="/UserPostPage">Create Post</html:link></li>
+-						<li><html:link action="/ManagePostQueryPage">Manage Post</html:link></li>
+-					</ul>
+-				</div>
+-				<!--/.nav-collapse -->
+-			</div>
+-		</div>
+-	</div>
+-	<div class="container">
+
 	<c:if
 		test="${sessionScope.active_user == null || !sessionScope.active_user.isAdmin }">
 		<logic:redirect action="/cyslistWeb" />
@@ -48,5 +69,6 @@
 			</table>
 		</html:form>
 	</c:if>
+	</div>
 </body>
 </html>
