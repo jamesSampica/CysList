@@ -74,6 +74,7 @@ public class HibernateUtil {
 
 		return p;
 	}
+
 	public static void updatePostByKey(String key, String email, String title,
 			String content) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -92,27 +93,29 @@ public class HibernateUtil {
 		session.getTransaction().commit();
 
 	}
-	public static void deletePostFromUser(User u, String key){
+
+	public static void deletePostFromUser(User u, String key) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		
-		Post p = (Post) session
-				.createQuery("from Post where postKey = :pkey")
+
+		Post p = (Post) session.createQuery("from Post where postKey = :pkey")
 				.setParameter("pkey", key).uniqueResult();
-		
-		User dbUser = (User) session.createQuery("from User as u left join fetch u.posts where u.name = :name")
+
+		User dbUser = (User) session
+				.createQuery(
+						"from User as u left join fetch u.posts where u.name = :name")
 				.setParameter("name", u.getName()).uniqueResult();
-		
+
 		dbUser.getPosts().remove(p);
-		
+
 		session.save(dbUser);
 		session.getTransaction().commit();
 	}
-	
+
 	public static void deletePostByKey(String key) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		
+
 		session.createQuery("delete from Post where postKey = :pkey")
 				.setParameter("pkey", key).executeUpdate();
 
@@ -260,5 +263,41 @@ public class HibernateUtil {
 		}
 
 		session.getTransaction().commit();
+	}
+
+	/**
+	 * Gets all posts for a specified topic.
+	 * 
+	 * @param topic
+	 *            The topic
+	 * @return A list of post objects.
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<Post> getAllPostsByTopic(String topic) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+
+		List<Post> posts = (List<Post>) session
+				.createQuery("from Post where topic = :pt")
+				.setParameter("pt", topic).list();
+
+		session.getTransaction().commit();
+		return posts;
+	}
+
+	/**
+	 * Gets all posts.
+	 * 
+	 * @return A list of posts.
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<Post> getAllPosts() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+
+		List<Post> posts = (List<Post>) session.createQuery("from Post").list();
+
+		session.getTransaction().commit();
+		return posts;
 	}
 }

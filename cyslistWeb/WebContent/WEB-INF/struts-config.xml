@@ -15,6 +15,7 @@
 		<form-bean name="TopicPostsPageForm" type="com.web.viewTopic.TopicPostsPageForm" />
 		<form-bean name="CreateUserForm" type="com.web.createUser.CreateUserForm" />
 		<form-bean name="DeleteUserForm" type="com.web.deleteUser.DeleteUserForm" />
+		<form-bean name="SearchForm" type="com.web.search.SearchForm" />
 	</form-beans>
 
 	<global-exceptions>
@@ -86,6 +87,11 @@
 			name="DeleteUserForm" validate="true" input="/UserList.do" scope="request">
 			<forward name="success" path="/UserList.do" />
 			<forward name="deleteself" path="/index.jsp" />
+		</action>
+
+		<action path="/search" type="com.web.search.SearchAction" name="SearchForm"
+			scope="session">
+			<forward name="success" path="/searchresults.jsp" />
 		</action>
 	</action-mappings>
 

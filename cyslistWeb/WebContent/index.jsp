@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h1>cysList</h1>
+	<c:import url="search.jsp" />
 	<h4>
 		<html:link action="/UserPostPage">post</html:link>
 	</h4>
@@ -22,7 +23,7 @@
 	<div style="color: red">
 		<html:errors />
 	</div>
-		<jsp:include page="loginlogout.jsp" />
+	<c:import url="loginlogout.jsp" />
 	<br />
 	<html:link action="/UserList">Delete Account</html:link>
 	<h4>Sell/Buy</h4>
