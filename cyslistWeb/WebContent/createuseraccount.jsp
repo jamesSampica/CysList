@@ -38,6 +38,7 @@
 <html>
 <head>
 <title>CysList</title>
+<link href="./css/styles.css" rel="stylesheet" media="screen">
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
