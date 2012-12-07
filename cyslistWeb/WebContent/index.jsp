@@ -33,7 +33,6 @@
 			</div>
 		</div>
 	</div>
-	<br />
 	<div class="container">
 		<!-- Main message -->
 		<div class="hero-unit">
