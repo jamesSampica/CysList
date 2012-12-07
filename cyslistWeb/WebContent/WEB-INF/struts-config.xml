@@ -19,6 +19,9 @@
 		<form-bean name="UserFlagForm" type="com.web.flag.UserFlagForm" />
 		
 		
+		<form-bean name="ViewProfileForm" type="com.web.viewProfile.ViewProfileForm" />
+		
+		
 		<form-bean name="UserRatingForm" type="com.web.rating.UserRatingForm" />
 		
 		
@@ -57,7 +60,16 @@
 		<forward name="ratingsuccess" path="/ratingsuccess.jsp"/>
 		</action>
 		
+<!-- 		VIEW PROFILE -->	
+
+<!-- 		<action  input="index.jsp" name="ViewProfileForm" path="/ViewProfile"  -->
+		<action  input="index.jsp" name="ViewProfileForm" path="/ViewProfile" 
+		scope="request" type="com.web.viewProfile.ViewProfileAction">
+				<forward name="viewp" path="/viewProfile.jsp" />		
+		</action>
 		
+	
+<!-- 	################################################	VIEW PROFILE -->
 
 		<action forward="/userpost.jsp" path="/UserPostPage" />
 		<action input="userpost.jsp" name="UserPostForm" path="/UserPost"

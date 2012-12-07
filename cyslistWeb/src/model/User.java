@@ -9,6 +9,7 @@ public class User {
 	String password;
 	String email;
 	boolean isAdmin;
+	boolean isLogin;
 
 	int rating;
 	Set<Post> posts;

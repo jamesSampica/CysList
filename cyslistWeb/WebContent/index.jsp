@@ -15,16 +15,28 @@
 	<h1>cysList</h1>
 	<c:import url="search.jsp" />
 
-	<h4>
-
-	</h4>
 
 	<h4>
 	<c:if test="${active_user.isAdmin==true}">
 			<html:link action="/ViewFlag">View Flags</html:link>
 	</c:if>
 	</h4>
-
+		
+		
+		
+		
+	<c:if test="${active_user.isAdmin==true}">	
+<%-- 	<c:if test="${active_user!=NULL}">	 --%>
+	
+		<html:form action="/ViewProfile">
+			<html:hidden name="ViewProfileForm" property="name" value="${active_user.name} "/>
+			<html:submit value="viewProfile" styleClass="linkbutton" />
+		</html:form>	
+	</c:if>
+	
+	
+	
+	
 	<h4>
 		<html:link action="/UserPostPage">post</html:link>
 	</h4>
