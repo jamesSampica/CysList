@@ -106,7 +106,7 @@
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="other" />
-								<html:submit value=Other" styleClass="linkbutton" />
+								<html:submit value="Other" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 				</table>
