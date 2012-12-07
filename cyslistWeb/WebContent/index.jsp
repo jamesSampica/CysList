@@ -92,21 +92,21 @@
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="engineering" />
-								<html:submit value="engineering" styleClass="linkbutton" />
+								<html:submit value="Engineering" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="art/design" />
-								<html:submit value="art/design" styleClass="linkbutton" />
+								<html:submit value="Art/Design" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="other" />
-								<html:submit value="other" styleClass="linkbutton" />
+								<html:submit value=Other" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 				</table>
@@ -118,28 +118,28 @@
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="events" />
-								<html:submit value="events" styleClass="linkbutton" />
+								<html:submit value="Events" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="clubs" />
-								<html:submit value="clubs" styleClass="linkbutton" />
+								<html:submit value="Clubs" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="help/tutoring" />
-								<html:submit value="help/tutoring" styleClass="linkbutton" />
+								<html:submit value="Help/Tutoring" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 					<tr>
 						<td><html:form action="/TopicPosts">
 								<html:hidden name="TopicPostsPageForm" property="topic"
 									value="jobs" />
-								<html:submit value="jobs" styleClass="linkbutton" />
+								<html:submit value="Jobs" styleClass="linkbutton" />
 							</html:form></td>
 					</tr>
 				</table>
