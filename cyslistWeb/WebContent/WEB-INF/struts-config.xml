@@ -16,6 +16,13 @@
 		<form-bean name="CreateUserForm" type="com.web.createUser.CreateUserForm" />
 		<form-bean name="DeleteUserForm" type="com.web.deleteUser.DeleteUserForm" />
 		<form-bean name="SearchForm" type="com.web.search.SearchForm" />
+		<form-bean name="UserFlagForm" type="com.web.flag.UserFlagForm" />
+		
+		
+		<form-bean name="UserRatingForm" type="com.web.rating.UserRatingForm" />
+		
+		
+		
 	</form-beans>
 
 	<global-exceptions>
@@ -31,6 +38,26 @@
 			scope="request" type="com.web.viewTopic.TopicPostsPageAction">
 			<forward name="topicResults" path="/topicPosts.jsp" />
 		</action>
+		
+		
+<!-- 		FLAG -->
+		<action input="viewpostpage.jsp" name="UserFlagForm" path="/flagUserPost"
+		scope="request" type="com.web.flag.UserFlagAction">
+		<forward name="flagsuccess" path="/flagsuccess.jsp"/>
+		</action>
+		
+		<!-- 		<action forward="viewflag.jsp" path="/ViewFlag"/> -->
+		<action path="/ViewFlag" type="com.web.flag.GetFlagAction">
+				<forward name="viewf" path="/viewFlag.jsp" />		
+		</action>
+		
+<!-- 		RATING -->	
+		<action input="viewpostpage.jsp" name="UserRatingForm" path="/rateSeller"
+		scope="request" type="com.web.rating.UserRatingAction">
+		<forward name="ratingsuccess" path="/ratingsuccess.jsp"/>
+		</action>
+		
+		
 
 		<action forward="/userpost.jsp" path="/UserPostPage" />
 		<action input="userpost.jsp" name="UserPostForm" path="/UserPost"

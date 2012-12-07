@@ -15,6 +15,7 @@
     	<property name="email"/>
     	<property name="imageExt"/>
     	<property name="date" type="timestamp"/>
+    	<property name="isFlag"/>
     	
     </class>
 </hibernate-mapping>

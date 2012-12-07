@@ -11,26 +11,6 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="/cyslistWeb">CysList</a>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li><a href="/cyslistWeb">Home</a></li>
-						<li class="active"><html:link action="/UserPostPage">Create Post</html:link></li>
-						<li><html:link action="/ManagePostQueryPage">Manage Post</html:link></li>
-					</ul>
-				</div>
-				<!--/.nav-collapse -->
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
  	        <html:form action="/UserPost" enctype="multipart/form-data">
             	Title : <html:text name="UserPostForm" property="title" /> <br>
             	Content : <br><html:textarea name="UserPostForm" property="content" cols="50" rows="10" /><br>
@@ -50,6 +30,5 @@
                   	<html:radio property="topic" value="jobs"/> jobs<br><br>
                   	<html:submit value="Post" />
            </html:form>
-           </div>
 	</body>
 </html>

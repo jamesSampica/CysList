@@ -16,26 +16,7 @@
 		<link rel="stylesheet" href="./css/styles.css"  type="text/css"/>
 	</head>
 	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="/cyslistWeb">CysList</a>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li class="active"><a href="/cyslistWeb">Home</a></li>
-						<li><html:link action="/UserPostPage">Create Post</html:link></li>
-						<li><html:link action="/ManagePostQueryPage">Manage Post</html:link></li>
-					</ul>
-				</div>
-				<!--/.nav-collapse -->
-			</div>
-		</div>
-	</div>
 	
-	<div class="container">
 	<!-- Facebook JavaScript SDK -->
 	<div id="fb-root"></div>
 	<script>
@@ -52,6 +33,13 @@
 
 	<h1>${post.title}</h1>
 	<a href="/cyslistWeb/" id="home">home</a>
+	
+	<html:form action="/flagUserPost">
+		<html:hidden name="UserFlagForm" property="postKey" value="${post.postKey} "/>
+		<html:submit value="flag" styleClass="linkbutton" />
+	</html:form>
+	
+	
 	<br /><br />
 	<div class="fb-like" data-href="<%= currentURL %>" data-send="false" data-width="450" data-show-faces="true"></div>
 	<div>
@@ -72,8 +60,18 @@
     		</c:if>
 		</table>
 		<br />
+	<html:form action="/rateSeller">
+		<html:hidden name="UserRatingForm" property="email" value="${post.email} "/>
+		Rate this seller (boundary: between 1 and 5): </br>
+		<html:text name="UserRatingForm" property="rating"/>
+		
+		<html:submit value="rate this seller" styleClass="button" />
+	</html:form>
+		
+		</br></br></br>
 		<div class="fb-comments" data-href="<%= currentURL %>" data-width="470" data-num-posts="5"></div>
 	</div>
-	</div>
+	
+	
 </body>
 </html>

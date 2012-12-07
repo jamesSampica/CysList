@@ -17,6 +17,7 @@ public class Post implements Comparable<Post>{
 	private String postKey;
 	private String email;
 	private String imageExt;
+	private boolean isFlag;
 	
 	/**
 	 * class constructor
@@ -145,6 +146,14 @@ public class Post implements Comparable<Post>{
 		this.imageExt = imageExt;
 	}
 	
+	public boolean getIsFlag() {
+		return isFlag;
+	}
+
+	public void setIsFlag(boolean isFlag) {
+		this.isFlag = isFlag;
+	}
+
 	@Override
 	public int compareTo(Post arg0) {
 		if(arg0.date.after(date)){

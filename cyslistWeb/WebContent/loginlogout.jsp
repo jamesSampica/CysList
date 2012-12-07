@@ -23,7 +23,7 @@
 %>
 <html>
 <head>
-<title>CysList</title>
+<title>cysList</title>
 </head>
 <body>
 	<c:if test="${sessionScope.active_user == null}">
