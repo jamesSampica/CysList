@@ -15,16 +15,20 @@ import org.apache.struts.action.ActionMapping;
 import org.hibernate.Session;
 
 import util.HibernateUtil;
-
+/**
+ * 
+ * @author Yifei Zhu
+ * 
+ * get all the flags post from db
+ *
+ */
 public class GetFlagAction  extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
     	
-//    	UserFlagForm f = (UserFlagForm) form;
     	HttpSession httpSession = request.getSession(true);
-//        System.out.println("flag"+f.getPostKey());
-        
+    	
         List<Post> p = getFlags();
         httpSession.setAttribute("viewflag", p);
         return mapping.findForward("viewf");

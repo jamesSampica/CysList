@@ -14,17 +14,22 @@ import org.hibernate.classic.Session;
 
 import util.HibernateUtil;
 
+/**
+ * 
+ * @author Yifei Zhu
+ * 
+ * Add rating to the seller:
+ * 
+ * if the seller have an account, (preRating+currRating)/2
+ * if the user do not have an account|| no email address on the post, wont do anything
+ *
+ */
 public class UserRatingAction extends org.apache.struts.action.Action {
-	/**
-	 * if the seller have an account, (preRating+currRating)/2
-	 * if the user do not have an account|| no email address on the post, wont do anything
-	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form, 
 			HttpServletRequest request, HttpServletResponse response)
 	throws Exception{
 		
 		UserRatingForm urf = (UserRatingForm) form;
-//		HttpSession httpSession = request.getSession(true);
 		System.out.println("seller's email:"+urf.getEmail());
 		System.out.println("enter rating:"+urf.getRating());
         
